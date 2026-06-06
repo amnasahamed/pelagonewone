@@ -1,0 +1,580 @@
+{
+  "choosing-structure": {
+    "id": "choosing-structure",
+    "title": "Choosing the Right Structure",
+    "sections": [
+      {
+        "heading": "The Big Decision",
+        "paragraphs": [
+          "One of the first decisions you'll make as a founder is choosing your business structure. This choice impacts everything from taxes to fundraising to personal liability.",
+          "Getting this right from the start saves you significant time and money down the road."
+        ]
+      },
+      {
+        "heading": "Common Business Structures in India",
+        "paragraphs": [
+          "Best for: Freelancers, small service providers",
+          "Best for: Professional services, family businesses",
+          "Best for: Professional services, consulting firms",
+          "Best for: Startups looking to scale, raise funding",
+          "1. Sole Proprietorship",
+          "2. Partnership Firm",
+          "3. Limited Liability Partnership (LLP)",
+          "4. Private Limited Company \u2b50"
+        ]
+      },
+      {
+        "heading": "Quick Comparison",
+        "paragraphs": [
+          "Factor | Proprietorship | Partnership | LLP | Pvt Ltd",
+          "Liability Protection | \u274c | \u274c | \u2705 | \u2705",
+          "VC/Angel Funding | \u274c | \u274c | \u274c | \u2705",
+          "Compliance Cost | Low | Low | Medium | High",
+          "Best For | Solo | 2+ Partners | Services | Scalable Startups"
+        ]
+      },
+      {
+        "heading": "Our Recommendation",
+        "paragraphs": [
+          "If you're building a startup that might raise funding: Go with Private Limited Company . The extra compliance is worth the flexibility.",
+          "If you're a service business with partners: LLP offers good protection with lower compliance."
+        ]
+      },
+      {
+        "heading": "Pro Tips",
+        "paragraphs": [
+          "You can always convert from one structure to another later, but it's easier to start right.",
+          "\ud83d\udca1 You can always convert from one structure to another later, but it's easier to start right."
+        ]
+      }
+    ]
+  },
+  "incorporation-process": {
+    "id": "incorporation-process",
+    "title": "The Incorporation Process & Costs",
+    "sections": [
+      {
+        "heading": "Step-by-Step Incorporation Guide",
+        "paragraphs": [
+          "For a Private Limited Company, the process is now streamlined via the SPICe+ (Simplified Proforma for Incorporating Company Electronically Plus) portal.",
+          "\u2022 Step 1: Obtain DSC (Digital Signature Certificate) for all proposed directors.",
+          "\u2022 Step 2: Reserve Company Name through the RUN (Reserve Unique Name) service.",
+          "\u2022 Step 3: Draft MoA and AoA (Memorandum and Articles of Association).",
+          "\u2022 Step 4: File SPICe+ Form for Incorporation, DIN, PAN, and TAN.",
+          "\u2022 Step 5: Get Certificate of Incorporation from the ROC."
+        ]
+      },
+      {
+        "heading": "Estimated Costs",
+        "paragraphs": [
+          "Item | Cost (Approx.)",
+          "DSC (2 Directors) | \u20b92,000 - \u20b93,000",
+          "Name Approval (RUN) | \u20b91,000",
+          "Govt. Stamp Duty | Varies by State (\u20b92,000 - \u20b910,000)",
+          "Professional Fees | \u20b95,000 - \u20b915,000",
+          "Total Range | \u20b910,000 - \u20b930,000"
+        ]
+      },
+      {
+        "heading": "Expected Timeline",
+        "paragraphs": [
+          "The timeline largely depends on how quickly name approval and document verification by the ROC happens.",
+          "Typical Duration: 7 to 15 Working Days"
+        ]
+      },
+      {
+        "heading": "Expert tips",
+        "paragraphs": [
+          "Choose at least 2 unique names for reservation to avoid rejection. Avoid generic words like 'Global', 'Solutions', or 'Technologies' as names.",
+          "\ud83d\udca1 Choose at least 2 unique names for reservation to avoid rejection. Avoid generic words like 'Global', 'Solutions', or 'Technologies' as names."
+        ]
+      }
+    ]
+  },
+  "dipp-recognition": {
+    "id": "dipp-recognition",
+    "title": "DIPP Recognition & Startup India",
+    "sections": [
+      {
+        "heading": "Eligibility Criteria",
+        "paragraphs": [
+          "\u2022 Entity must be a Pvt Ltd, LLP, or Partnership.",
+          "\u2022 Registered for less than 10 years.",
+          "\u2022 Turnover under \u20b9100 Crores in any financial year.",
+          "\u2022 Working towards innovation or improvement of products/services."
+        ]
+      },
+      {
+        "heading": "How to Apply",
+        "paragraphs": [
+          "Register on the Startup India Hub and submit the application for DPIIT (formerly DIPP) recognition with a brief write-up on your startup's innovative nature.",
+          "Make sure your \"innovation statement\" clearly highlights how you are solving a problem or making a process better.",
+          "\ud83d\udca1 Make sure your \"innovation statement\" clearly highlights how you are solving a problem or making a process better."
+        ]
+      }
+    ]
+  },
+  "shop-establishment": {
+    "id": "shop-establishment",
+    "title": "Shop & Establishment Act",
+    "sections": [
+      {
+        "heading": "The Shop & Establishment License",
+        "paragraphs": [
+          "Regulated by state governments, this license (commonly called Gumasta in some states) is mandatory for any commercial establishment or shop."
+        ]
+      },
+      {
+        "heading": "Is it Mandatory?",
+        "paragraphs": [
+          "Yes, for almost any physical office or business premise. It's often the first document banks ask for when opening a Current Account if other registrations aren't ready."
+        ]
+      },
+      {
+        "heading": "Key Regulations Covered",
+        "paragraphs": [
+          "In many states like Karnataka and Delhi, the process is now fully online and yields an e-certificate within days.",
+          "\ud83d\udca1 In many states like Karnataka and Delhi, the process is now fully online and yields an e-certificate within days."
+        ]
+      }
+    ]
+  },
+  "unit-economics": {
+    "id": "unit-economics",
+    "title": "Unit Economics 101",
+    "sections": [
+      {
+        "heading": "Understanding Your Business Math",
+        "paragraphs": [
+          "Unit economics tells you if your business model actually works. It's the math behind each transaction that determines if you're building a sustainable business or burning money."
+        ]
+      },
+      {
+        "heading": "Customer Acquisition Cost (CAC)",
+        "paragraphs": [
+          "What you spend to get one customer",
+          "CAC = Total Marketing & Sales Cost \\xf7 Number of New Customers"
+        ]
+      },
+      {
+        "heading": "Lifetime Value (LTV)",
+        "paragraphs": [
+          "Total revenue from one customer over time",
+          "LTV = Average Revenue per User \\xd7 Average Customer Lifetime"
+        ]
+      },
+      {
+        "heading": "The Golden Ratio: LTV/CAC",
+        "paragraphs": [
+          "Ratio | What it means",
+          "< 1:1 | \ud83d\udd34 Losing money on each customer",
+          "1:1 to 3:1 | \ud83d\udfe1 Barely profitable, needs work",
+          "3:1 to 5:1 | \ud83d\udfe2 Healthy, sustainable business",
+          "> 5:1 | \ud83d\udd35 Great efficiency, scale faster!"
+        ]
+      },
+      {
+        "heading": "Expert tips",
+        "paragraphs": [
+          "LTV should ideally be calculated based on Contribution Margin, not just Revenue.",
+          "\ud83d\udca1 LTV should ideally be calculated based on Contribution Margin, not just Revenue."
+        ]
+      }
+    ]
+  },
+  "burn-rate": {
+    "id": "burn-rate",
+    "title": "Burn Rate & Runway",
+    "sections": [
+      {
+        "heading": "Burn Rate & Runway",
+        "paragraphs": [
+          "Gross Burn: Total cash expenses per month. Net Burn: Difference between expenses and revenue (if revenue < expenses).",
+          "Runway: How many months you have before you run out of cash."
+        ]
+      },
+      {
+        "heading": "Calculating Runway",
+        "paragraphs": [
+          "Runway = Cash in Bank \\xf7 Monthly Net Burn"
+        ]
+      },
+      {
+        "heading": "Managing Your Burn",
+        "paragraphs": [
+          "A \"safe\" runway for a seed-stage startup is usually 18-24 months.",
+          "\u2022 Automate processes to reduce headcount costs.",
+          "\u2022 Move to variable costs (freelancers) instead of fixed (full-time).",
+          "\u2022 Focus on high-margin products/services.",
+          "\ud83d\udca1 A \"safe\" runway for a seed-stage startup is usually 18-24 months."
+        ]
+      }
+    ]
+  },
+  "cash-flows": {
+    "id": "cash-flows",
+    "title": "Projecting Cash Flows",
+    "sections": [
+      {
+        "heading": "Cash is King, but Profit is Queen",
+        "paragraphs": [
+          "Many profitable businesses fail because they run out of cash. Cash flow is about the timing of money in and out."
+        ]
+      },
+      {
+        "heading": "What to Track",
+        "paragraphs": [
+          "Always keep a 10-15% buffer in your cash flow projections for unexpected expenses.",
+          "\u2022 Accounts Receivable (Money coming in).",
+          "\u2022 Accounts Payable (Bills to pay).",
+          "\u2022 Tax liabilities (GST, TDS payments).",
+          "\u2022 Seasonal dips in revenue.",
+          "\ud83d\udca1 Always keep a 10-15% buffer in your cash flow projections for unexpected expenses."
+        ]
+      }
+    ]
+  },
+  "gst-basics": {
+    "id": "gst-basics",
+    "title": "GST Basics for Founders",
+    "sections": [
+      {
+        "heading": "GST Demystified",
+        "paragraphs": [
+          "GST (Goods and Services Tax) is a unified indirect tax that replaced multiple taxes like VAT, Service Tax, Excise, etc. Understanding GST is crucial for every Indian business."
+        ]
+      },
+      {
+        "heading": "GST Rates",
+        "paragraphs": [
+          "Category | Rate",
+          "Essential items | 0-5%",
+          "Standard goods/services | 12-18%",
+          "Luxury items | 28%"
+        ]
+      },
+      {
+        "heading": "Input Tax Credit (ITC)",
+        "paragraphs": [
+          "Claim Input Tax Credit (ITC) on everything from laptops to office furniture to reduce your tax bill.",
+          "GST Payable = Tax Collected on Sales \u2212 Tax Paid on Purchases",
+          "\ud83d\udca1 Claim Input Tax Credit (ITC) on everything from laptops to office furniture to reduce your tax bill."
+        ]
+      }
+    ]
+  },
+  "pf-esi": {
+    "id": "pf-esi",
+    "title": "PF & ESI Compliance",
+    "sections": [
+      {
+        "heading": "Provident Fund (EPF)",
+        "paragraphs": [
+          "EPF is a retirement benefit scheme. The employer and employee both contribute 12% of the basic salary to the EPFO."
+        ]
+      },
+      {
+        "heading": "Employee State Insurance (ESI)",
+        "paragraphs": [
+          "ESI provides health and social security benefits to employees. It is mandatory for establishments with low-wage employees."
+        ]
+      },
+      {
+        "heading": "When are they Mandatory?",
+        "paragraphs": [
+          "Even if you have fewer than 20 employees, you can opt for Voluntary PF Registration to provide better benefits to your team.",
+          "Scheme | Employee Threshold | Salary Threshold",
+          "EPF | 20+ Employees | Up to \u20b915,000 basic",
+          "ESI | 10+ Employees | Up to \u20b921,000 gross",
+          "\ud83d\udca1 Even if you have fewer than 20 employees, you can opt for Voluntary PF Registration to provide better benefits to your team."
+        ]
+      }
+    ]
+  },
+  "roc-filings": {
+    "id": "roc-filings",
+    "title": "ROC Annual Filings",
+    "sections": [
+      {
+        "heading": "ROC Compliance",
+        "paragraphs": [
+          "Every Private Limited Company must file annual documents with the Registrar of Companies (ROC) to maintain its \"Active\" status."
+        ]
+      },
+      {
+        "heading": "The Cost of Delay",
+        "paragraphs": [
+          "Even if your company had zero business during the year, you must file nil returns to avoid massive penalties and director disqualification.",
+          "\ud83d\udca1 Even if your company had zero business during the year, you must file nil returns to avoid massive penalties and director disqualification."
+        ]
+      }
+    ]
+  },
+  "funding-landscape": {
+    "id": "funding-landscape",
+    "title": "The Funding Landscape",
+    "sections": [
+      {
+        "heading": "The Venture Journey",
+        "paragraphs": [
+          "Pre-Seed: Idea/MVP stage. Friends, Family, and Incubators.",
+          "Seed: Early traction. Angels and Seed Funds.",
+          "Series A: Product-Market Fit. Institutional VCs."
+        ]
+      },
+      {
+        "heading": "Sources of Capital",
+        "paragraphs": [
+          "\u2022 Angel Investors: High-net-worth individuals.",
+          "\u2022 Venture Capital: Professional money managers.",
+          "\u2022 Accelerators: Program-based (Y-Combinator, Antler).",
+          "\u2022 Venture Debt: Non-dilutive capital (Trifecta, Alteria)."
+        ]
+      },
+      {
+        "heading": "What Investors Look For",
+        "paragraphs": [
+          "Fundraising is a full-time job. Expect it to take 3-6 months from pitch to bank transfer.",
+          "\ud83d\udca1 Fundraising is a full-time job. Expect it to take 3-6 months from pitch to bank transfer."
+        ]
+      }
+    ]
+  },
+  "investment-instruments": {
+    "id": "investment-instruments",
+    "title": "Investment Instruments",
+    "sections": [
+      {
+        "heading": "Equity Shares",
+        "paragraphs": [
+          "Standard ownership shares. Most founders start with these. Dividends and voting rights are tied to these shares."
+        ]
+      },
+      {
+        "heading": "CCPS (Compulsory Convertible Preference Shares)",
+        "paragraphs": [
+          "The standard instrument for VCs in India. They offer preferential rights (like liquidation preference) and convert to equity at a future date or event."
+        ]
+      },
+      {
+        "heading": "iSAFE (India Simple Agreement for Future Equity)",
+        "paragraphs": [
+          "Inspired by YC's SAFE, iSAFE is a convertible note that isn't debt. It's an agreement to issue equity during the next funding round.",
+          "Convertible notes (like iSAFE) are faster and cheaper to execute for seed rounds because you don't have to fix a valuation immediately.",
+          "\ud83d\udca1 Convertible notes (like iSAFE) are faster and cheaper to execute for seed rounds because you don't have to fix a valuation immediately."
+        ]
+      }
+    ]
+  },
+  "term-sheet": {
+    "id": "term-sheet",
+    "title": "Term Sheet Jargon",
+    "sections": [
+      {
+        "heading": "Valuation Basics",
+        "paragraphs": [
+          "Pre-money Valuation: Value before investment. Post-money Valuation: Pre-money + Investment amount.",
+          "Founder Dilution % = Investment \\xf7 Post-money Valuation"
+        ]
+      },
+      {
+        "heading": "Veto & Control Rights",
+        "paragraphs": [
+          "Investors often ask for \"Affirmative Voting Rights.\" This means certain decisions (like selling the company or raising more debt) cannot be made without their consent."
+        ]
+      },
+      {
+        "heading": "Liquidation Preference",
+        "paragraphs": [
+          "Determines who gets paid first during an exit. A 1x Non-participating preference is the founder-friendly market standard.",
+          "Never sign a term sheet without a lawyer or a professional consultant reviewing the \"small print\" on governance and exit clauses.",
+          "\ud83d\udca1 Never sign a term sheet without a lawyer or a professional consultant reviewing the \"small print\" on governance and exit clauses."
+        ]
+      }
+    ]
+  },
+  "patents-copyrights": {
+    "id": "patents-copyrights",
+    "title": "Patents & Copyrights",
+    "sections": [
+      {
+        "heading": "Copyright",
+        "paragraphs": [
+          "Protects original works of authorship like marketing brochures, website content, and source code. Protection is automatic but registration helps in legal disputes."
+        ]
+      },
+      {
+        "heading": "Patents",
+        "paragraphs": [
+          "Protects inventions that are new, non-obvious, and useful. Patenting is expensive and take years, but it provides a massive competitive moat."
+        ]
+      },
+      {
+        "heading": "Can you Patent Software in India?",
+        "paragraphs": [
+          "In India, software per se is not patentable. However, software that produces a \"technical effect\" or is tied to hardware can often be patented.",
+          "Startups get up to 80% rebate on patent filing fees if they are Startup India recognized!",
+          "\ud83d\udca1 Startups get up to 80% rebate on patent filing fees if they are Startup India recognized!"
+        ]
+      }
+    ]
+  },
+  "salary-ctc": {
+    "id": "salary-ctc",
+    "title": "Structuring Salary (CTC)",
+    "sections": [
+      {
+        "heading": "Structuring for Tax Efficiency",
+        "paragraphs": [
+          "Help your employees take home more by including tax-free components like:",
+          "\u2022 Standard Deduction (\u20b950k).",
+          "\u2022 Professional Tax (varies by state).",
+          "\u2022 LTA (Leave Travel Allowance)."
+        ]
+      },
+      {
+        "heading": "Expert tips",
+        "paragraphs": [
+          "Don't just offer a high CTC. Explain the \"In-hand\" vs \"CTC\" to candidates to manage expectations.",
+          "Plan your budget with our Employee Cost Calculator .",
+          "\ud83d\udca1 Don't just offer a high CTC. Explain the \"In-hand\" vs \"CTC\" to candidates to manage expectations.",
+          "\ud83d\udd27 Plan your budget with our Employee Cost Calculator ."
+        ]
+      }
+    ]
+  },
+  "consultant-employee": {
+    "id": "consultant-employee",
+    "title": "Consultant vs Employee",
+    "sections": [
+      {
+        "heading": "Employment vs. Retainership",
+        "paragraphs": [
+          "Feature | Employee | Consultant",
+          "Compliance | PF, ESI, Gratuity | None (only TDS)",
+          "Control | High (work hours, etc) | Low (deliverables based)",
+          "Tax (TDS) | Salary Slabs | 10% (Section 194J)"
+        ]
+      },
+      {
+        "heading": "The \"Deemed Employee\" Risk",
+        "paragraphs": [
+          "If a consultant works exclusively for you, uses your laptop, and follows your work hours, labor courts may treat them as an employee, making you liable for back-dated PF/ESI."
+        ]
+      },
+      {
+        "heading": "Decision Matrix",
+        "paragraphs": [
+          "Hire as Employee: For core functions (Product, Sales) where you need full-time commitment and control.",
+          "Hire as Consultant: For specialized projects (Legal, Design, Research) or temporary needs."
+        ]
+      }
+    ]
+  },
+  "b2b-sales": {
+    "id": "b2b-sales",
+    "title": "B2B Sales in India",
+    "sections": [
+      {
+        "heading": "The Long Game",
+        "paragraphs": [
+          "B2B sales in India are relationship-driven and often involve a long sales cycle (3-9 months).",
+          "B2B Sales = Trust + ROI + Persistence"
+        ]
+      },
+      {
+        "heading": "Negotiation Tactics",
+        "paragraphs": [
+          "In India, \"No\" often means \"Not right now\" or \"I need more conviction.\" Don't give up too early.",
+          "\u2022 Focus on 'Value' over 'Price'.",
+          "\u2022 Offer tiered pricing (Basic vs Pro).",
+          "\u2022 Use case studies from similar Indian firms as social proof.",
+          "\ud83d\udca1 In India, \"No\" often means \"Not right now\" or \"I need more conviction.\" Don't give up too early."
+        ]
+      }
+    ]
+  },
+  "whatsapp-marketing": {
+    "id": "whatsapp-marketing",
+    "title": "WhatsApp Marketing",
+    "sections": [
+      {
+        "heading": "The Power of the Green Bubble",
+        "paragraphs": [
+          "In India, WhatsApp has a 95%+ open rate, compared to ~20% for email. It's where your customers already are."
+        ]
+      },
+      {
+        "heading": "API vs. Business App",
+        "paragraphs": [
+          "Feature | Business App | Business API (WATI/Interakt)",
+          "Scale | Manual / Broadcast lists | Automated / Bulk messages"
+        ]
+      },
+      {
+        "heading": "Don't be a Spammer",
+        "paragraphs": [
+          "If users report your messages as spam, Meta will ban your number. Always include an \"Unsubscribe\" or \"Opt-out\" button.",
+          "\u26a0\ufe0f If users report your messages as spam, Meta will ban your number. Always include an \"Unsubscribe\" or \"Opt-out\" button."
+        ]
+      }
+    ]
+  },
+  "influencer-marketing": {
+    "id": "influencer-marketing",
+    "title": "Influencer Marketing on a Budget",
+    "sections": [
+      {
+        "heading": "The Micro-Influencer Advantage",
+        "paragraphs": [
+          "Micro-influencers (10k-50k followers) often have higher engagement rates and are much more affordable than \"Celebs.\""
+        ]
+      },
+      {
+        "heading": "What to include in your Brief",
+        "paragraphs": [
+          "\u2022 The Hook: First 3 seconds of the video.",
+          "\u2022 Key Message: One thing they MUST say.",
+          "\u2022 Call to Action (CTA): Link in bio / Coupon code."
+        ]
+      },
+      {
+        "heading": "ROI Tracking",
+        "paragraphs": [
+          "Use custom UTM links or unique discount codes for each influencer to track exactly who is driving sales.",
+          "Barter deals (Product for Post) still work great with hungry micro-influencers.",
+          "\ud83d\udca1 Barter deals (Product for Post) still work great with hungry micro-influencers."
+        ]
+      }
+    ]
+  },
+  "strike-off": {
+    "id": "strike-off",
+    "title": "Strike Off (FTE)",
+    "sections": [
+      {
+        "heading": "Fast Track Exit (FTE)",
+        "paragraphs": [
+          "Strike off is a way to close a non-functional company without going through a long and expensive liquidation process."
+        ]
+      },
+      {
+        "heading": "Step-by-Step Closure",
+        "paragraphs": [
+          "\u2022 Ensure company has NIL assets and liabilities.",
+          "\u2022 Company must be non-operational for at least 2 years.",
+          "\u2022 File Form STK-2 with a professional's certification.",
+          "\u2022 Closing all bank accounts and GST registrations first."
+        ]
+      },
+      {
+        "heading": "Directors Liability",
+        "paragraphs": [
+          "Closing a company doesn't excuse directors from prior fraud or massive defaults. However, it does stop the clock on ongoing ROC compliance costs.",
+          "A \"dormant\" company is often more expensive than just closing it and starting fresh when you're ready again.",
+          "\ud83d\udca1 A \"dormant\" company is often more expensive than just closing it and starting fresh when you're ready again."
+        ]
+      }
+    ]
+  }
+}
