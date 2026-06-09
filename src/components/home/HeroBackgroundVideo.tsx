@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 
 /**
  * Background video for the home hero. Uses a CSS gradient until the stream is
- * ready — never flashes the poster image (hero-founder.jpg) on load.
+ * ready — never flashes the poster image on load.
  */
 export function HeroBackgroundVideo() {
   /** Start true so we never paint the poster on first paint / hydration */

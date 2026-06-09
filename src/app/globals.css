@@ -13,6 +13,22 @@
   --line: rgba(18, 29, 64, 0.1);
   --shadow-soft: 0 4px 24px -4px rgba(18, 29, 64, 0.1);
   --shadow-card: 0 12px 40px -16px rgba(18, 29, 64, 0.16);
+
+  /* shadcn-compatible tokens (mapped to Pelago palette) */
+  --background: var(--paper-warm);
+  --foreground: var(--ink);
+  --primary: var(--accent);
+  --primary-foreground: #ffffff;
+  --secondary: #ffffff;
+  --secondary-foreground: var(--ink);
+  --muted-foreground: var(--muted);
+  --accent-ui: rgba(58, 103, 216, 0.08);
+  --accent-ui-foreground: var(--ink);
+  --destructive: #dc2626;
+  --destructive-foreground: #ffffff;
+  --border: rgba(18, 29, 64, 0.12);
+  --input: rgba(18, 29, 64, 0.12);
+  --ring: var(--accent);
 }
 
 @theme inline {
@@ -27,6 +43,20 @@
   --color-teal: var(--accent);
   --color-teal-dark: var(--accent-hover);
   --color-teal-light: var(--accent-light);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent-ui: var(--accent-ui);
+  --color-accent-ui-foreground: var(--accent-ui-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
   --font-sans: var(--font-jakarta);
   --font-display: var(--font-fraunces);
 }

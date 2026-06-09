@@ -1,52 +1,52 @@
-/** Image generation prompts — replace placeholders in /public/images when ready */
+/** Site imagery — real Pelago photos from pelagoconsultants.com */
 
 export const imagePrompts = {
   hero: {
-    path: "/images/hero-founder.jpg",
+    path: "/office/office-3.jpg",
     prompt:
-      "Creative modern hero illustration for Indian startup compliance: abstract geometric documents, shield checkmark, and growth motif in navy (#121d40) and blue (#3a67d8) with cream highlights. Contemporary editorial 3D-flat style, subtle grain, no text or logos, trustworthy fintech-consultancy mood",
+      "Pelago leadership team group portrait — five founders in business casual at HiLITE Business Park, Kozhikode",
     aspect: "4:5",
   },
   aboutTeam: {
-    path: "/images/about-team.jpg",
+    path: "/office/office-3.jpg",
     prompt:
-      "Professional team photo, small Indian business consultancy of 4 people in smart casual at HiLITE Business Park office, diverse ages, warm natural light, candid not posed corporate cliché, Kerala India",
+      "Pelago leadership team group portrait — five founders in business casual at HiLITE Business Park, Kozhikode",
     aspect: "4:3",
   },
   aboutOffice: {
-    path: "/images/about-office.jpg",
+    path: "/office/office-2.jpg",
     prompt:
-      "Architectural interior shot of modern business park office corridor in Kozhikode, clean lines, plants, soft daylight, no people, premium but approachable",
+      "Pelago team collaborating at shared desks in HiLITE Business Park office, Kozhikode",
     aspect: "3:2",
   },
   servicesStart: {
-    path: "/images/services-incorporation.jpg",
+    path: "/office/office-1.jpg",
     prompt:
-      "Close-up hands stamping approved company registration certificate on wooden desk, Indian context, teal accent folder, crisp documentary photography",
+      "Pelago workspace with compliance documents on screen and motivational quote frames on the wall",
     aspect: "16:10",
   },
   servicesTax: {
-    path: "/images/services-tax.jpg",
+    path: "/office/office-6.jpg",
     prompt:
-      "Organized desk with GST return forms, calculator, laptop showing spreadsheet, Indian rupee notes subtle in background, calm focused mood, overhead angle",
+      "Pelago advisor reviewing financial ratios and cash-flow data on a laptop at HiLITE Business Park",
     aspect: "16:10",
   },
   contact: {
-    path: "/images/contact-consultation.jpg",
+    path: "/office/office-5.jpg",
     prompt:
-      "Friendly consultant on video call with startup founder, split feeling of connection, laptop and notebook, warm office, authentic Indian business setting",
+      "Pelago advisors in a client strategy meeting around a desk at HiLITE Business Park",
     aspect: "16:9",
   },
   careers: {
-    path: "/images/careers-culture.jpg",
+    path: "/office/office-4.jpg",
     prompt:
-      "Young professionals collaborating at whiteboard with compliance workflow diagram, energetic startup office India, natural light, diverse team",
+      "Pelago team working at open-plan desks in the HiLITE Business Park office, Kozhikode",
     aspect: "16:9",
   },
   blogDefault: {
-    path: "/images/blog-default.jpg",
+    path: "/office/office-7.jpg",
     prompt:
-      "Abstract minimal composition, Indian startup paperwork and coffee cup on marble surface, soft shadows, editorial product photography, muted teal and cream palette",
+      "Pelago consultant analyzing market charts on a MacBook at the Kozhikode office",
     aspect: "16:9",
   },
 } as const;

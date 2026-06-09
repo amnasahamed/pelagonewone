@@ -1,6 +1,6 @@
 import { imagePrompts, type ImagePromptKey } from "@/lib/image-prompts";
 
-/** Brand images in /public/images — see IMAGE_PROMPTS.md */
+/** Site image paths — real Pelago team & office photos in /public/office, /public/team, /public/staff */
 export const stockImages: Record<ImagePromptKey, string> = {
   hero: imagePrompts.hero.path,
   aboutTeam: imagePrompts.aboutTeam.path,

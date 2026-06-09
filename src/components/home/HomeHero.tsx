@@ -1,10 +1,9 @@
 import Link from "next/link";
 import { Award, MessageCircle, Phone } from "lucide-react";
-import { HeroAmbient } from "@/components/home/HeroAmbient";
-import { HeroBackgroundVideo } from "@/components/home/HeroBackgroundVideo";
 import { HomeHeroStats } from "@/components/home/HomeHeroStats";
 import { HeroVisualPanel } from "@/components/home/HeroVisualPanel";
 import { Button } from "@/components/ui/Button";
+import { GradientBars } from "@/components/ui/gradient-bars-background";
 import type { HomePageContent } from "@/lib/home-types";
 import { site } from "@/lib/site";
 
@@ -13,10 +12,19 @@ type Props = Pick<HomePageContent, "hero">;
 export function HomeHero({ hero }: Props) {
   return (
     <section className="home-hero home-hero--wix relative overflow-hidden">
-      <HeroBackgroundVideo />
-      <HeroAmbient />
+      <GradientBars
+        numBars={7}
+        gradientFrom="rgba(58, 103, 216, 0.28)"
+        gradientTo="transparent"
+        animationDuration={2.4}
+        className="opacity-90"
+      />
       <div
-        className="home-hero-grid pointer-events-none absolute inset-0 z-[1] opacity-40"
+        className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-b from-[#fbfcfe]/40 via-transparent to-[var(--paper-warm)]/80"
+        aria-hidden
+      />
+      <div
+        className="home-hero-grid pointer-events-none absolute inset-0 z-[2] opacity-40"
         aria-hidden
       />
 
