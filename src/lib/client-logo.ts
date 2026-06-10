@@ -44,7 +44,7 @@ export function inferLogoSurface(logoPath: string): LogoSurface {
 }
 
 const LOGO_STRIP_IMAGE_BASE =
-  "h-7 w-auto max-w-[7rem] object-contain object-center transition-all duration-300 sm:max-h-8 sm:max-w-[7.75rem]";
+  "h-[3.15rem] w-auto max-w-[12.6rem] object-contain object-center transition-all duration-300 sm:max-h-[3.6rem] sm:max-w-[13.95rem]";
 
 export function getLogoStripImageClass(surface: LogoSurface): string {
   switch (surface) {
@@ -69,4 +69,11 @@ export function getClientCardLogoClass(surface: LogoSurface): string {
     case "transparent":
       return `${LOGO_CARD_IMAGE_BASE} opacity-90 saturate-[0.95] group-hover:opacity-100 group-hover:saturate-100`;
   }
+}
+
+const LOGO_GRID_IMAGE_CLASS =
+  "max-h-[3rem] w-auto max-w-[88%] object-contain object-center sm:max-h-[3.5rem]";
+
+export function getClientGridLogoClass(): string {
+  return LOGO_GRID_IMAGE_CLASS;
 }

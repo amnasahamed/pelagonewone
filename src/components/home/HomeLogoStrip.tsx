@@ -1,14 +1,18 @@
-import Image from "next/image";
 import Link from "next/link";
 import type { Client } from "@/lib/clients-content";
 import { PageSection } from "@/components/PageSection";
-import { cn } from "@/lib/utils";
+import { LogoCloud } from "@/components/ui/logo-cloud-3";
 
 type Props = { clients: Client[] };
 
 export function HomeLogoStrip({ clients }: Props) {
   const featuredLogos = clients.filter((c) => c.logo).slice(0, 12);
-  const marqueeLogos = [...featuredLogos, ...featuredLogos];
+  const logos = featuredLogos.map((client) => ({
+    src: client.logo!,
+    alt: client.name,
+    width: 216,
+    height: 72,
+  }));
 
   return (
     <section className="home-logo-strip" aria-label="Our clients">
@@ -33,32 +37,14 @@ export function HomeLogoStrip({ clients }: Props) {
           </Link>
         </div>
 
-        <div className="home-logo-marquee mt-7">
-          <ul className="home-logo-marquee__track">
-            {marqueeLogos.map((client, index) => {
-              const logo = client.logo!;
-              return (
-                <li
-                  key={`${client.name}-${index}`}
-                  className="home-logo-marquee__item"
-                  aria-hidden={index >= featuredLogos.length}
-                >
-                  <span className="home-logo-marquee__pill">
-                    <Image
-                      src={logo}
-                      alt={index < featuredLogos.length ? client.name : ""}
-                      width={120}
-                      height={40}
-                      className={cn(
-                        "h-7 w-auto max-w-[6.5rem] object-contain object-center sm:h-8 sm:max-w-[7rem]",
-                      )}
-                    />
-                  </span>
-                </li>
-              );
-            })}
-          </ul>
-        </div>
+        <LogoCloud
+          className="mt-3 [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]"
+          logos={logos}
+          gap={86}
+          duration={80}
+          durationOnHover={25}
+          imageClassName="h-[3.15rem] max-w-[12.6rem] object-contain object-center opacity-90 transition-opacity duration-300 hover:opacity-100 md:h-[3.6rem] md:max-w-[14.4rem]"
+        />
       </PageSection>
     </section>
   );

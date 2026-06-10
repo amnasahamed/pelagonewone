@@ -4,11 +4,11 @@ export const serviceSections = [
     title: "Start your business",
     subtitle: "Get registered and ready to operate",
     items: [
-      { name: "Private Limited Company", timeline: "7–10 days", desc: "Limited liability, funding-ready, professional credibility." },
-      { name: "LLP Registration", timeline: "7–10 days", desc: "Ideal for consultancies and partnerships with lighter compliance." },
-      { name: "Partnership Firm", timeline: "5–7 days", desc: "Simple structure for trusted co-founders and family ventures." },
-      { name: "Startup India Registration", timeline: "10–15 days", desc: "DPIIT recognition, tax benefits, and funding access." },
-      { name: "MSME Registration", timeline: "2–3 days", desc: "Udyam registration for tenders, subsidies, and better loan terms." },
+      { name: "Private Limited Company", timeline: "10–15 days", desc: "Limited liability, funding-ready, professional credibility." },
+      { name: "LLP Registration", timeline: "10–15 days", desc: "Ideal for consultancies and partnerships with lighter compliance." },
+      { name: "Partnership Firm", timeline: "3–5 days", desc: "Simple structure for trusted co-founders and family ventures." },
+      { name: "Startup India Registration", timeline: "3–5 days", desc: "DPIIT recognition, tax benefits, and funding access." },
+      { name: "MSME Registration", timeline: "1–2 days", desc: "Udyam registration for tenders, subsidies, and better loan terms." },
     ],
   },
   {
@@ -67,8 +67,8 @@ export type { BlogPost, BlogCategory } from "@/lib/blog";
 export { serviceBlogByName, getBlogSlugForService } from "@/lib/blog-services";
 
 export const faqs = [
-  { q: "How much does company registration cost?", a: "Private Limited typically runs ₹8,000–15,000 including government fees; LLP is often ₹6,000–12,000. We quote upfront — no hidden line items." },
-  { q: "How long does incorporation take?", a: "With documents ready, Pvt Ltd or LLP is usually 7–10 working days including COI, PAN, and TAN." },
+  { q: "How much does company registration cost?", a: "Private Limited starts from ₹18,000+ including professional and government fees; LLP is comparable. We quote upfront — no hidden line items." },
+  { q: "How long does incorporation take?", a: "With documents ready, Pvt Ltd or LLP is usually 10–15 working days including COI, PAN, and TAN." },
   { q: "Do I need GST as a startup?", a: "Mandatory above ₹20L turnover (₹10L in special category states) or for certain e-commerce cases. Early GST can help with input credits." },
   { q: "What documents do directors need?", a: "PAN, Aadhaar, photo, and address proof per director. We send a tailored checklist after your first call." },
 ] as const;

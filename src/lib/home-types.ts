@@ -78,7 +78,7 @@ export type HomePageContent = {
 export const staticHomePage: HomePageContent = {
   hero: {
     badge: "Startup India certified · Kozhikode",
-    headlineHighlight: "7–10 days",
+    headlineHighlight: "10–15 days",
     headlineSub: "One advisor. Fixed quote.",
     description:
       "Pvt Ltd, GST, and ROC—with government fees itemised and updates on WhatsApp from our Kozhikode team.",

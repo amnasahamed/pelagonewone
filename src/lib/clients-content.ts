@@ -93,7 +93,7 @@ export const clientsPageCopy = {
     "From ambitious startups to established enterprises — companies across India rely on Pelago Consultants for compliance, strategy, and sustainable growth.",
   rosterTitle: "Client directory",
   rosterSubtitle:
-    "Search by company name. Every engagement gets the same dedicated advisor and transparent quoting.",
+    "Search by company name — browse logos in the wall below, with the full roster listed underneath.",
   searchPlaceholder: "Search clients…",
 } as const;
 

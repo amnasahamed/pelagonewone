@@ -17,7 +17,7 @@ export const heroVideo = {
 } as const;
 
 export const heroOutcome =
-  "Pvt Ltd in 7–10 days · GST on schedule · Fixed quote before you pay";
+  "Pvt Ltd in 10–15 days · GST on schedule · Fixed quote before you pay";
 
 export const heroOutcomePills = [
   "Quote before you pay",
@@ -53,11 +53,11 @@ export const homeServiceHighlights: Record<
   string,
   { fromPrice: string; timeline: string }
 > = {
-  start: { fromPrice: "Pvt Ltd from ₹8,000+", timeline: "7–10 days avg." },
-  tax: { fromPrice: "GST reg from ₹3,500+", timeline: "3–5 days avg." },
-  protect: { fromPrice: "TM filing from ₹6,500+", timeline: "6–12 months" },
-  compliance: { fromPrice: "ROC annual from ₹5,000+", timeline: "On calendar" },
-  grow: { fromPrice: "HR setup from ₹4,500+", timeline: "7–10 days" },
+  start: { fromPrice: "Pvt Ltd from ₹18,000+", timeline: "10–15 days avg." },
+  tax: { fromPrice: "GST reg from ₹1,500+", timeline: "3–5 days avg." },
+  protect: { fromPrice: "TM filing from ₹8,000+", timeline: "6–12 months" },
+  compliance: { fromPrice: "ROC annual from ₹7,000+", timeline: "On calendar" },
+  grow: { fromPrice: "Bookkeeping from ₹5,000+", timeline: "Monthly" },
 };
 
 /** Wix-style alternating image + copy blocks on the home page */
@@ -96,7 +96,7 @@ export const comparisonScenario = {
   traditional:
     "3+ weeks · endless email · surprise add-ons after you've paid government fees",
   pelago:
-    "7–10 days · WhatsApp updates · quote agreed upfront — government fees itemised",
+    "10–15 days · WhatsApp updates · quote agreed upfront — government fees itemised",
 } as const;
 
 export const testimonials = [

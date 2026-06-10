@@ -99,7 +99,7 @@ export default async function ServicesPage() {
               </p>
             </div>
             <div className="text-center">
-              <p className="font-display text-2xl font-bold sm:text-3xl">7–10</p>
+              <p className="font-display text-2xl font-bold sm:text-3xl">10–15</p>
               <p className="mt-1 text-[11px] font-medium uppercase tracking-wide text-white/55 sm:text-xs">
                 Day incorporation
               </p>

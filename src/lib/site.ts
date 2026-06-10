@@ -20,7 +20,7 @@ export const site = {
   },
   stats: [
     { value: "6,000+", label: "Founders served" },
-    { value: "7–10 days", label: "Avg. incorporation" },
+    { value: "10–15 days", label: "Avg. incorporation" },
     { value: "4.9/5", label: "Client rating" },
     { value: "100%", label: "Transparent pricing" },
   ],

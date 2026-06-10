@@ -117,7 +117,7 @@ export const aboutStats = [
 export const aboutProof = [
   { label: "Founders served", value: "6,000+" },
   { label: "Client rating", value: "4.9/5" },
-  { label: "Avg. incorporation", value: "7–10 days" },
+  { label: "Avg. incorporation", value: "10–15 days" },
   { label: "Pricing model", value: "Fixed quotes" },
 ] as const;
 
