@@ -83,7 +83,7 @@ export const processSteps = [
     step: "01",
     title: "Tell us what you need",
     desc: "WhatsApp or a free call. We map services to your stage — pre-revenue, funded, or scaling.",
-    deliverable: "Scope + fixed quote within 24 hours",
+    deliverable: "Scope + fixed quote in 24h",
   },
   {
     step: "02",

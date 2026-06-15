@@ -12,6 +12,8 @@ Replace files under `public/images/` when you have final assets. Each placeholde
 | `contact-consultation.jpg` | Contact | Friendly consultant on video call with startup founder, laptop and notebook, warm office, authentic Indian business setting |
 | `careers-culture.jpg` | Careers | Young professionals collaborating at whiteboard with compliance workflow, energetic startup office India, natural light |
 | `blog-default.jpg` | Blog cards | Abstract minimal composition, startup paperwork and coffee on marble, soft shadows, muted teal and cream palette |
+| `process/path.png` | How it works (section bg) | Full-section background — phone, stats, and chat are baked into the image |
+| `process/process-whatsapp-visual.png` | _(legacy)_ | Replaced by `path.png` background + HTML overlays |
 
 ### Hero background video (optional loop)
 

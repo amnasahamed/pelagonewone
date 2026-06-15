@@ -1,8 +1,6 @@
 import type { ImagePromptKey } from "@/lib/image-prompts";
 import { comparison, processSteps } from "@/lib/data";
 import {
-  heroOutcomePills,
-  heroJourneySteps,
   homeServiceHighlights,
   homeWhyBlocks,
   comparisonScenario,
@@ -40,15 +38,21 @@ export type HomeServiceHighlight = {
   timeline: string;
 };
 
+export type HeroTrustIcon = "users" | "star" | "shield";
+
+export type HeroTrustItem = {
+  icon: HeroTrustIcon;
+  value: string;
+  label: string;
+};
+
 export type HomePageContent = {
   hero: {
     badge: string;
-    headlineHighlight: string;
-    headlineSub: string;
+    headlineLine1: string;
+    headlineLine2: string;
     description: string;
-    pills: string[];
-    journeySteps: HeroJourneyStep[];
-    journeyFooter: string;
+    trustItems: HeroTrustItem[];
   };
   whySection: {
     eyebrow: string;
@@ -78,13 +82,15 @@ export type HomePageContent = {
 export const staticHomePage: HomePageContent = {
   hero: {
     badge: "Startup India certified · Kozhikode",
-    headlineHighlight: "10–15 days",
-    headlineSub: "One advisor. Fixed quote.",
+    headlineLine1: "Build your company.",
+    headlineLine2: "We'll handle compliance.",
     description:
-      "Pvt Ltd, GST, and ROC—with government fees itemised and updates on WhatsApp from our Kozhikode team.",
-    pills: [...heroOutcomePills],
-    journeySteps: heroJourneySteps.map((s) => ({ ...s })),
-    journeyFooter: "One advisor on WhatsApp from quote to filing.",
+      "From incorporation to annual filing, one advisor on WhatsApp, every step of the way.",
+    trustItems: [
+      { icon: "users", value: "6,000+", label: "Founders served" },
+      { icon: "star", value: "4.9/5", label: "Client rating" },
+      { icon: "shield", value: "Startup India", label: "Certified" },
+    ],
   },
   whySection: {
     eyebrow: "Why founders choose us",

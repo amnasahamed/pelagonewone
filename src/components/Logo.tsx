@@ -23,11 +23,7 @@ export function Logo({ className, variant = "dark" }: Props) {
         width={180}
         height={56}
         priority
-        className={cn(
-          "h-9 w-auto sm:h-10",
-          /* Brand PNGs include a black plate; screen lets the header/footer show through */
-          "mix-blend-screen",
-        )}
+        className="h-9 w-auto sm:h-10"
       />
     </Link>
   );

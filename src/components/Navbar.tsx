@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
+import { ChevronDown, Menu, X } from "lucide-react";
 import { Logo } from "@/components/Logo";
 import { navLinks, site } from "@/lib/site";
 import { Button } from "@/components/ui/Button";
@@ -13,9 +13,11 @@ export function Navbar() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const isHome = pathname === "/";
+  const lightNav = isHome && !scrolled;
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 8);
+    const onScroll = () => setScrolled(window.scrollY > 12);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -24,50 +26,57 @@ export function Navbar() {
   return (
     <header
       className={cn(
-        "sticky top-0 z-50 border-b border-white/10 bg-ink transition-shadow duration-300",
-        scrolled && "shadow-lg shadow-black/40",
+        "sticky top-0 z-50 border-b transition-all duration-300",
+        lightNav
+          ? "border-transparent bg-[#f8fafc]/80 backdrop-blur-md"
+          : "border-ink/8 bg-white/95 shadow-sm backdrop-blur-md",
       )}
     >
-      <nav className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-3 lg:px-8">
-        <Logo variant="light" className="[&_img]:h-8 sm:[&_img]:h-9" />
+      <nav className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-3.5 lg:px-8">
+        <Logo variant="dark" className="[&_img]:h-8 sm:[&_img]:h-9" />
 
         <ul className="hidden items-center gap-0.5 lg:flex">
           {navLinks.map(({ href, label }) => {
             const active =
               href === "/" ? pathname === "/" : pathname.startsWith(href);
             return (
-              <li key={href}>
+              <li key={href} className="relative">
                 <Link
                   href={href}
                   className={cn(
-                    "rounded-lg px-3 py-2 text-[0.9rem] font-medium transition-colors",
+                    "inline-flex items-center gap-1 rounded-full px-3.5 py-2 text-[0.875rem] font-medium transition-colors",
                     active
-                      ? "bg-white/10 text-white"
-                      : "text-white/65 hover:bg-white/5 hover:text-white",
+                      ? "bg-accent/10 text-accent"
+                      : "text-ink/70 hover:bg-ink/5 hover:text-ink",
                   )}
                 >
                   {label}
+                  {label === "Services" && (
+                    <ChevronDown size={14} className="opacity-50" aria-hidden />
+                  )}
                 </Link>
               </li>
             );
           })}
+          <li>
+            <a
+              href={site.whatsapp}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-full px-3.5 py-2 text-[0.875rem] font-medium text-ink/70 transition-colors hover:bg-ink/5 hover:text-ink"
+            >
+              WhatsApp
+            </a>
+          </li>
         </ul>
 
         <div className="hidden items-center gap-3 lg:flex">
-          <Button
-            href={site.whatsapp}
-            variant="ghost"
-            external
-            className="!text-white/70 hover:!bg-white/10 hover:!text-white"
-          >
-            WhatsApp
-          </Button>
           <Button href="/contact">Get free help</Button>
         </div>
 
         <button
           type="button"
-          className="rounded-lg p-2 text-white lg:hidden"
+          className="rounded-lg p-2 text-ink lg:hidden"
           onClick={() => setOpen(!open)}
           aria-label={open ? "Close menu" : "Open menu"}
         >
@@ -76,25 +85,33 @@ export function Navbar() {
       </nav>
 
       {open && (
-        <div className="border-t border-white/10 bg-ink px-5 py-5 lg:hidden">
+        <div className="border-t border-ink/8 bg-white px-5 py-5 lg:hidden">
           <ul className="flex flex-col gap-0.5">
             {navLinks.map(({ href, label }) => (
               <li key={href}>
                 <Link
                   href={href}
                   onClick={() => setOpen(false)}
-                  className="block rounded-lg px-3 py-3 text-base font-medium text-white hover:bg-white/5"
+                  className="block rounded-lg px-3 py-3 text-base font-medium text-ink hover:bg-ink/5"
                 >
                   {label}
                 </Link>
               </li>
             ))}
+            <li>
+              <a
+                href={site.whatsapp}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setOpen(false)}
+                className="block rounded-lg px-3 py-3 text-base font-medium text-ink hover:bg-ink/5"
+              >
+                WhatsApp
+              </a>
+            </li>
             <li className="flex flex-col gap-2 pt-4">
               <Button href="/contact" className="w-full">
                 Get free help
-              </Button>
-              <Button href={site.whatsapp} variant="whatsapp" external className="w-full">
-                WhatsApp
               </Button>
             </li>
           </ul>

@@ -75,21 +75,7 @@ function normalizeHomePage(raw: SanityHomePage): HomePageContent | null {
   if (!raw.hero?.headlineHighlight || !raw.whySection?.blocks?.length) return null;
 
   return {
-    hero: {
-      badge: raw.hero.badge ?? staticHomePage.hero.badge,
-      headlineHighlight: raw.hero.headlineHighlight,
-      headlineSub: raw.hero.headlineSub ?? staticHomePage.hero.headlineSub,
-      description: raw.hero.description ?? staticHomePage.hero.description,
-      pills: raw.hero.pills?.length ? raw.hero.pills : staticHomePage.hero.pills,
-      journeySteps: raw.hero.journeySteps?.length
-        ? raw.hero.journeySteps.map((s, i) => ({
-            title: s.title ?? staticHomePage.hero.journeySteps[i]?.title ?? "",
-            detail: s.detail ?? staticHomePage.hero.journeySteps[i]?.detail ?? "",
-            status: s.status ?? staticHomePage.hero.journeySteps[i]?.status ?? "upcoming",
-          }))
-        : staticHomePage.hero.journeySteps,
-      journeyFooter: raw.hero.journeyFooter ?? staticHomePage.hero.journeyFooter,
-    },
+    hero: staticHomePage.hero,
     whySection: {
       eyebrow: raw.whySection.eyebrow ?? staticHomePage.whySection.eyebrow,
       title: raw.whySection.title ?? staticHomePage.whySection.title,
