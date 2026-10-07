@@ -1,20 +1,11 @@
-"use client";
+import { StudioClient } from "./StudioClient";
 
-import dynamic from "next/dynamic";
-import config from "../../../../sanity.config";
+export const dynamicParams = false;
 
-const NextStudio = dynamic(
-  () => import("next-sanity/studio").then((mod) => mod.NextStudio),
-  {
-    ssr: false,
-    loading: () => (
-      <div className="flex h-screen items-center justify-center bg-[#101112] text-white/70">
-        Loading Sanity Studio…
-      </div>
-    ),
-  },
-);
+export function generateStaticParams() {
+  return [{ tool: [] }];
+}
 
 export default function StudioPage() {
-  return <NextStudio config={config} />;
+  return <StudioClient />;
 }

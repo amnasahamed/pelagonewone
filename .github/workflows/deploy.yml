@@ -1,0 +1,82 @@
+name: Deploy Pelago Consultants
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pelago-production
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      DEPLOY_HOST: infinity.herosite.pro
+      DEPLOY_USER: desgrocr1
+      DEPLOY_PORT: '22'
+      DEPLOY_PATH: /var/www/057de4ba-9d3f-4436-ab56-12b994e23b9d/pelagoconsultants.com
+      NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY: ${{ secrets.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY }}
+      NEXT_PUBLIC_SANITY_PROJECT_ID: ${{ vars.NEXT_PUBLIC_SANITY_PROJECT_ID }}
+      NEXT_PUBLIC_SANITY_DATASET: ${{ vars.NEXT_PUBLIC_SANITY_DATASET }}
+      NEXT_PUBLIC_SANITY_API_VERSION: ${{ vars.NEXT_PUBLIC_SANITY_API_VERSION }}
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - uses: actions/setup-node@v6.5.0
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Check deployment configuration
+        env:
+          DEPLOY_SSH_KEY: ${{ secrets.DEPLOY_SSH_KEY }}
+          DEPLOY_KNOWN_HOSTS: ${{ secrets.DEPLOY_KNOWN_HOSTS }}
+        run: |
+          test -n "$NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY"
+          test -n "$DEPLOY_SSH_KEY"
+          test -n "$DEPLOY_KNOWN_HOSTS"
+
+      - run: npm ci
+      - run: npm run lint
+      - run: npm run test:contact
+      - run: python3 scripts/test-deploy-infinity.py
+      - run: npm run build
+
+      - name: Validate export and prepare SSH
+        env:
+          DEPLOY_SSH_KEY: ${{ secrets.DEPLOY_SSH_KEY }}
+          DEPLOY_KNOWN_HOSTS: ${{ secrets.DEPLOY_KNOWN_HOSTS }}
+        run: |
+          test -s out/index.html
+          test -s out/contact/index.html
+          test -d out/_next
+          printf '%s\n' "$GITHUB_SHA" > out/deployment.txt
+          umask 077
+          printf '%s\n' "$DEPLOY_SSH_KEY" > "$RUNNER_TEMP/pelago_key"
+          printf '%s\n' "$DEPLOY_KNOWN_HOSTS" > "$RUNNER_TEMP/pelago_known_hosts"
+
+      - name: Upload staging files, back up, and deploy
+        run: |
+          deployment_id="$GITHUB_RUN_ID-$GITHUB_RUN_ATTEMPT"
+          remote_stage="$(dirname "$DEPLOY_PATH")/deploy-releases/pelago-$deployment_id"
+          ssh_args=(-i "$RUNNER_TEMP/pelago_key" -p "$DEPLOY_PORT" -o BatchMode=yes -o StrictHostKeyChecking=yes -o "UserKnownHostsFile=$RUNNER_TEMP/pelago_known_hosts" -o ConnectTimeout=15)
+          ssh "${ssh_args[@]}" "$DEPLOY_USER@$DEPLOY_HOST" "mkdir -p '$remote_stage'"
+          rsync -a --no-owner --no-group --chmod=u=rwX,go=rX \
+            -e "ssh -i $RUNNER_TEMP/pelago_key -p $DEPLOY_PORT -o BatchMode=yes -o StrictHostKeyChecking=yes -o UserKnownHostsFile=$RUNNER_TEMP/pelago_known_hosts -o ConnectTimeout=15" \
+            out/ "$DEPLOY_USER@$DEPLOY_HOST:$remote_stage/"
+          ssh "${ssh_args[@]}" "$DEPLOY_USER@$DEPLOY_HOST" \
+            "bash -s -- '$remote_stage' '$DEPLOY_PATH' '$deployment_id' '$GITHUB_SHA'" < scripts/deploy-infinity.sh
+
+      - name: Verify public website
+        run: |
+          deployed_commit=$(curl --fail --silent --show-error --retry 5 --retry-delay 5 --retry-all-errors --max-time 30 "https://pelagoconsultants.com/deployment.txt?build=$GITHUB_SHA")
+          test "$deployed_commit" = "$GITHUB_SHA"
+
+      - name: Remove temporary SSH files
+        if: always()
+        run: rm -f -- "$RUNNER_TEMP/pelago_key" "$RUNNER_TEMP/pelago_known_hosts"

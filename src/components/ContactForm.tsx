@@ -2,10 +2,10 @@
 
 import { useActionState } from "react";
 import { useSearchParams } from "next/navigation";
-import {
-  initialContactFormState,
-  submitContactForm,
-} from "@/app/(site)/contact/actions";
+import { initialContactFormState } from "@/lib/contact/types";
+import { submitContactForm } from "@/lib/contact/submit";
+import { site } from "@/lib/site";
+
 
 export function ContactForm() {
   const searchParams = useSearchParams();
@@ -24,6 +24,13 @@ export function ContactForm() {
       className="rounded-2xl border border-ink/8 bg-white p-8"
     >
       <h2 className="font-display text-xl text-ink">Send a message</h2>
+      {!process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY && (
+        <p className="mt-4 text-sm text-muted">
+          Email enquiries are temporarily unavailable. Please{" "}
+          <a href={site.whatsapp} target="_blank" rel="noopener noreferrer" className="text-accent underline">WhatsApp us</a>
+          {" "}or <a href={`mailto:${site.email}`} className="text-accent underline">email us directly</a>.
+        </p>
+      )}
 
       {showSuccess ? (
         <p
@@ -58,6 +65,7 @@ export function ContactForm() {
           <input
             required
             name="name"
+            maxLength={120}
             type="text"
             disabled={pending || showSuccess}
             className="mt-1 w-full rounded-xl border border-ink/12 bg-paper px-4 py-3 text-ink outline-none focus:border-accent focus-visible:ring-2 focus-visible:ring-accent/25 disabled:opacity-60"
@@ -69,6 +77,7 @@ export function ContactForm() {
           <input
             required
             name="contact"
+            maxLength={200}
             type="text"
             defaultValue={defaultContact}
             disabled={pending || showSuccess}
@@ -81,6 +90,7 @@ export function ContactForm() {
           <textarea
             required
             name="message"
+            maxLength={4000}
             rows={4}
             disabled={pending || showSuccess}
             className="mt-1 w-full resize-none rounded-xl border border-ink/12 bg-paper px-4 py-3 text-ink outline-none focus:border-accent focus-visible:ring-2 focus-visible:ring-accent/25 disabled:opacity-60"
@@ -89,7 +99,7 @@ export function ContactForm() {
         </label>
         <button
           type="submit"
-          disabled={pending || showSuccess}
+          disabled={pending || showSuccess || !process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY}
           className="w-full rounded-full bg-ink py-3 text-sm font-semibold text-paper transition-colors hover:bg-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent disabled:cursor-not-allowed disabled:opacity-60"
         >
           {pending ? "Sending…" : showSuccess ? "Sent" : "Submit — we'll reply soon"}

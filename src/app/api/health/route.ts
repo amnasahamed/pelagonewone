@@ -1,10 +1,12 @@
 import { NextResponse } from "next/server";
 
-/** Lightweight check for Vercel uptime / deploy verification. */
+export const dynamic = "force-static";
+
+/** Static build marker for deployment verification; not a live server check. */
 export async function GET() {
   return NextResponse.json({
     ok: true,
     service: "pelagonewwebsite",
-    timestamp: new Date().toISOString(),
+    generatedAt: new Date().toISOString(),
   });
 }
