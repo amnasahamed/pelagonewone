@@ -2,18 +2,24 @@ import type { Client } from "@/lib/clients-content";
 import { LogoCloud } from "@/components/ui/logo-cloud-3";
 
 const FEATURED_LOGO_CLASS =
-  "h-[3.15rem] w-auto max-w-[12.6rem] object-contain object-center sm:max-h-[3.6rem] sm:max-w-[13.95rem]";
+  "h-[4rem] w-[9rem] object-contain object-center md:h-[4rem]";
 
 type Props = { clients: Client[] };
 
 export function ClientsFeaturedStrip({ clients }: Props) {
-  const featured = clients.filter((c) => c.logo).slice(0, 16);
+  const withLogos = clients.filter((client) => client.logo);
+  const featured = [
+    ...withLogos.filter((client) => client.featured),
+    ...withLogos.filter((client) => !client.featured),
+  ].slice(0, 16);
   const logos = featured.map((client) => ({
     src: client.logo!,
-    alt: client.name,
+    alt: client.brandName ?? client.name,
     width: 252,
     height: 86,
     className: FEATURED_LOGO_CLASS,
+    itemClassName:
+      client.logoBackground === "dark" ? "bg-ink" : "bg-paper-warm",
   }));
 
   return (
@@ -25,7 +31,8 @@ export function ClientsFeaturedStrip({ clients }: Props) {
         <LogoCloud
           className="mt-6 [mask-image:linear-gradient(to_right,transparent,black_6%,black_94%,transparent)]"
           logos={logos}
-          gap={86}
+          itemClassName="h-24 w-48 rounded-xl p-4"
+          gap={24}
           duration={80}
           durationOnHover={25}
         />

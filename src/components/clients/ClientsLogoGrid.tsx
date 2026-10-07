@@ -1,26 +1,35 @@
 import Image from "next/image";
-import { RevealOnScroll } from "@/components/ui/RevealOnScroll";
 import type { Client } from "@/lib/clients-content";
-import { getClientGridLogoClass } from "@/lib/client-logo";
+import { cn } from "@/lib/utils";
 
-function LogoCell({ client, index }: { client: Client; index: number }) {
+function LogoCell({ client }: { client: Client }) {
   const logo = client.logo!;
 
   return (
-    <RevealOnScroll delay={(index % 12) * 25} variant="subtle" className="contents">
-      <article className="flex aspect-[5/3] flex-col items-center justify-center gap-2 bg-white p-3 sm:p-4">
+    <article
+      className={cn(
+        "flex h-40 flex-col items-center justify-center gap-3 rounded-xl border border-ink/8 p-4 sm:h-48 sm:p-5",
+        client.logoBackground === "dark" ? "bg-ink" : "bg-white",
+      )}
+    >
+      <div className="relative h-20 w-full sm:h-24">
         <Image
           src={logo}
-          alt={client.name}
-          width={160}
-          height={64}
-          className={getClientGridLogoClass()}
+          alt={client.brandName ?? client.name}
+          fill
+          sizes="(max-width: 640px) 40vw, (max-width: 1024px) 25vw, 170px"
+          className="object-contain"
         />
-        <p className="line-clamp-2 text-center text-[10px] font-medium leading-tight text-muted sm:text-[11px]">
-          {client.name}
-        </p>
-      </article>
-    </RevealOnScroll>
+      </div>
+      <p
+        className={cn(
+          "line-clamp-2 text-center text-[10px] font-medium leading-tight sm:text-[11px]",
+          client.logoBackground === "dark" ? "text-white/75" : "text-muted",
+        )}
+      >
+        {client.brandName ?? client.name}
+      </p>
+    </article>
   );
 }
 
@@ -30,8 +39,12 @@ function NameRoster({ clients }: { clients: Client[] }) {
   return (
     <section className="mt-10 lg:mt-12" aria-label="Additional clients">
       <div className="flex items-baseline justify-between gap-4 border-b border-ink/8 pb-3">
-        <h3 className="font-display text-lg font-bold text-ink">Also on our roster</h3>
-        <p className="text-xs font-medium text-muted">{clients.length} companies</p>
+        <h3 className="font-display text-lg font-bold text-ink">
+          Also on our roster
+        </h3>
+        <p className="text-xs font-medium text-muted">
+          {clients.length} companies
+        </p>
       </div>
       <ul className="mt-4 columns-1 gap-x-10 sm:columns-2 lg:columns-3">
         {clients.map((client) => (
@@ -58,12 +71,10 @@ export function ClientsLogoGrid({ clients }: Props) {
   return (
     <>
       {withLogos.length > 0 && (
-        <div className="overflow-hidden rounded-2xl border border-ink/8 bg-ink/[0.06] shadow-sm">
-          <div className="grid grid-cols-2 gap-px sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
-            {withLogos.map((client, index) => (
-              <LogoCell key={client.name} client={client} index={index} />
-            ))}
-          </div>
+        <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
+          {withLogos.map((client) => (
+            <LogoCell key={client.name} client={client} />
+          ))}
         </div>
       )}
 

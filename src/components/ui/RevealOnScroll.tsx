@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState, type ReactNode } from "react";
+import { useEffect, useRef, type ReactNode } from "react";
 import { cn } from "@/lib/utils";
 
 export type RevealVariant =
@@ -58,21 +58,23 @@ export function RevealOnScroll({
   const variant: RevealVariant =
     variantProp ?? (tone === "subtle" ? "subtle" : "rise");
   const ref = useRef<HTMLDivElement>(null);
-  const [visible, setVisible] = useState(false);
 
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
 
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      setVisible(true);
       return;
     }
+
+    const bounds = el.getBoundingClientRect();
+    if (bounds.top < window.innerHeight && bounds.bottom > 0) return;
+    el.dataset.revealPending = "true";
 
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setVisible(true);
+          el.dataset.revealPending = "false";
           observer.disconnect();
         }
       },
@@ -88,8 +90,8 @@ export function RevealOnScroll({
   return (
     <div
       ref={ref}
-      className={cn(classes.base, visible && classes.visible, className)}
-      style={visible && delay > 0 ? { transitionDelay: `${delay}ms` } : undefined}
+      className={cn(classes.base, className)}
+      style={delay > 0 ? { transitionDelay: `${delay}ms` } : undefined}
     >
       {children}
     </div>

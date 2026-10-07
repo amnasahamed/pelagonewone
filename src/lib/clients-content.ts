@@ -1,10 +1,15 @@
+import { suppliedClientLogos } from "@/lib/supplied-client-logos";
+
 export type Client = {
   name: string;
   logo?: string;
+  brandName?: string;
+  logoBackground?: "dark";
+  featured?: boolean;
 };
 
 /** Clients — synced from pelagoconsultants.com/clients */
-export const clients: Client[] = [
+const existingClients: Client[] = [
   { name: "Adam Design Studio LLP", logo: "/clients/ADAM DESIGN STUDIO.png" },
   {
     name: "Al Tamimi Tours And Travels LLP",
@@ -70,7 +75,10 @@ export const clients: Client[] = [
     logo: "/clients/SPOT MANAGEMENT CONSULTANTS.jpg",
   },
   { name: "Tales Endeavours LLP", logo: "/clients/TALES ENDEAVOURS.jpg" },
-  { name: "Webec International LLP", logo: "/clients/WEBEC INTERNATIONAL.jpeg" },
+  {
+    name: "Webec International LLP",
+    logo: "/clients/WEBEC INTERNATIONAL.jpeg",
+  },
   { name: "Zoha Holidays LLP", logo: "/clients/ZOHA HOLIDAYS.jpg" },
   { name: "5Square Digital Media LLP" },
   { name: "Actai Technologies Private Limited" },
@@ -82,6 +90,19 @@ export const clients: Client[] = [
   { name: "Base Of Stars Technologies LLP" },
   { name: "Blufang Ventures LLP" },
   { name: "C School Of Creative Studies LLP" },
+];
+
+const suppliedByName = new Map(
+  suppliedClientLogos.map((client) => [client.name, client]),
+);
+const existingNames = new Set(existingClients.map((client) => client.name));
+
+export const clients: Client[] = [
+  ...existingClients.map((client) => ({
+    ...client,
+    ...suppliedByName.get(client.name),
+  })),
+  ...suppliedClientLogos.filter((client) => !existingNames.has(client.name)),
 ];
 
 export const clientsWithLogos = clients.filter((c) => c.logo);

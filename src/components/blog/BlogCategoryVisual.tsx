@@ -1,54 +1,46 @@
+import Image from "next/image";
 import type { BlogPost } from "@/lib/blog";
-import { getBlogCategoryTheme } from "@/lib/blog-theme";
 import { cn } from "@/lib/utils";
 
 type Props = {
   category: BlogPost["category"];
   className?: string;
-  /** Show category name badge (blog index style) */
   showBadge?: boolean;
   iconClassName?: string;
+};
+
+const categoryArtwork: Record<BlogPost["category"], string> = {
+  Registration: "/images/editorial/foundations-hero.jpg",
+  "Tax & Compliance": "/images/editorial/founders-journal.jpg",
+  Startup: "/images/editorial/foundations-service.jpg",
+  Certifications: "/images/editorial/foundations-service.jpg",
+  "Legal & IP": "/images/editorial/foundations-hero.jpg",
 };
 
 export function BlogCategoryVisual({
   category,
   className,
   showBadge = true,
-  iconClassName = "h-14 w-14",
 }: Props) {
-  const theme = getBlogCategoryTheme(category);
-  const Icon = theme.icon;
-
   return (
     <div
       className={cn(
-        "relative flex aspect-[16/10] items-end overflow-hidden bg-gradient-to-br",
-        theme.gradient,
+        "blog-editorial-visual relative flex aspect-[16/10] items-end overflow-hidden",
         className,
       )}
     >
-      <div
-        className="pointer-events-none absolute inset-0 opacity-20"
-        style={{
-          backgroundImage:
-            "linear-gradient(rgba(255,255,255,.15) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.15) 1px, transparent 1px)",
-          backgroundSize: "32px 32px",
-        }}
-        aria-hidden
+      <Image
+        src={categoryArtwork[category]}
+        alt=""
+        fill
+        sizes="(max-width: 700px) 90vw, (max-width: 1100px) 45vw, 400px"
+        className="object-cover"
       />
-      <Icon
-        className={cn(
-          "pointer-events-none absolute right-4 top-4 text-white/20",
-          iconClassName,
-        )}
-        strokeWidth={1.25}
-        aria-hidden
-      />
-      {showBadge ? (
-        <span className="relative m-4 rounded-lg bg-white/95 px-2.5 py-1 text-[11px] font-bold uppercase tracking-wide text-ink/80">
+      {showBadge && (
+        <span className="relative m-4 rounded-md bg-paper px-3 py-1.5 text-[9px] font-medium tracking-wide text-ink">
           {category}
         </span>
-      ) : null}
+      )}
     </div>
   );
 }

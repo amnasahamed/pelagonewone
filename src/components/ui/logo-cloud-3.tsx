@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { InfiniteSlider } from "@/components/ui/infinite-slider";
 import { cn } from "@/lib/utils";
 
@@ -7,6 +8,7 @@ type Logo = {
   width?: number;
   height?: number;
   className?: string;
+  itemClassName?: string;
 };
 
 type LogoCloudProps = React.ComponentProps<"div"> & {
@@ -45,19 +47,23 @@ export function LogoCloud({
         {logos.map((logo) => (
           <span
             key={`logo-${logo.alt}`}
-            className={cn("flex shrink-0 items-center justify-center", itemClassName)}
+            className={cn(
+              "flex shrink-0 items-center justify-center",
+              itemClassName,
+              logo.itemClassName,
+            )}
           >
-            <img
+            <Image
               alt={logo.alt}
               className={cn(
-                "pointer-events-none h-4 select-none object-contain md:h-5 dark:brightness-0 dark:invert",
+                "pointer-events-none h-4 select-none object-contain md:h-5",
                 logo.className,
                 imageClassName,
               )}
-              height={logo.height ?? undefined}
+              height={logo.height ?? 72}
               loading="lazy"
               src={logo.src}
-              width={logo.width ?? undefined}
+              width={logo.width ?? 216}
             />
           </span>
         ))}

@@ -1,43 +1,51 @@
 "use client";
 
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useMemo, useSyncExternalStore } from "react";
 
 const STORAGE_KEY = "pelago-learn-progress";
-
-function loadCompleted(): Set<string> {
-  if (typeof window === "undefined") return new Set();
+const PROGRESS_EVENT = "pelago-learn-progress-changed";
+let sessionProgress = "[]";
+function subscribe(callback: () => void) {
+  window.addEventListener("storage", callback);
+  window.addEventListener(PROGRESS_EVENT, callback);
+  return () => {
+    window.removeEventListener("storage", callback);
+    window.removeEventListener(PROGRESS_EVENT, callback);
+  };
+}
+function snapshot(): string {
   try {
-    const raw = localStorage.getItem(STORAGE_KEY);
-    if (!raw) return new Set();
-    const arr = JSON.parse(raw) as string[];
-    return new Set(Array.isArray(arr) ? arr : []);
+    return localStorage.getItem(STORAGE_KEY) ?? sessionProgress;
+  } catch {
+    return sessionProgress;
+  }
+}
+function parseCompleted(raw: string | null): Set<string> {
+  try {
+    const parsed: unknown = JSON.parse(raw ?? "[]");
+    return new Set(
+      Array.isArray(parsed)
+        ? parsed.filter((key): key is string => typeof key === "string")
+        : [],
+    );
   } catch {
     return new Set();
   }
 }
-
 export function useLearnProgress() {
-  const [completed, setCompleted] = useState<Set<string>>(new Set());
-  const [ready, setReady] = useState(false);
-
-  useEffect(() => {
-    setCompleted(loadCompleted());
-    setReady(true);
-  }, []);
-
-  useEffect(() => {
-    if (!ready) return;
-    localStorage.setItem(STORAGE_KEY, JSON.stringify([...completed]));
-  }, [completed, ready]);
-
+  const raw = useSyncExternalStore(subscribe, snapshot, () => null);
+  const completed = useMemo(() => parseCompleted(raw), [raw]);
   const toggleLesson = useCallback((key: string) => {
-    setCompleted((prev) => {
-      const next = new Set(prev);
-      if (next.has(key)) next.delete(key);
-      else next.add(key);
-      return next;
-    });
+    const next = parseCompleted(snapshot());
+    if (next.has(key)) next.delete(key);
+    else next.add(key);
+    sessionProgress = JSON.stringify([...next]);
+    try {
+      localStorage.setItem(STORAGE_KEY, sessionProgress);
+    } catch {
+      /* Progress remains available for this session. */
+    }
+    window.dispatchEvent(new Event(PROGRESS_EVENT));
   }, []);
-
-  return { completed, toggleLesson, ready };
+  return { completed, toggleLesson, ready: raw !== null };
 }

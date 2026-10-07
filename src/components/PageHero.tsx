@@ -1,5 +1,3 @@
-"use client";
-
 import type { ReactNode } from "react";
 import { cn } from "@/lib/utils";
 
@@ -28,12 +26,18 @@ export function PageHero({
   return (
     <section
       className={cn(
-        "page-hero relative overflow-hidden bg-ink text-white",
+        "page-hero relative overflow-hidden bg-paper-warm text-ink",
         className,
       )}
     >
-      <div className="page-hero__glow pointer-events-none absolute inset-0" aria-hidden />
-      <div className="page-hero__grid pointer-events-none absolute inset-0 opacity-[0.06]" aria-hidden />
+      <div
+        className="page-hero__glow pointer-events-none absolute inset-0"
+        aria-hidden
+      />
+      <div
+        className="page-hero__grid pointer-events-none absolute inset-0 opacity-[0.06]"
+        aria-hidden
+      />
 
       <div className="relative mx-auto max-w-7xl px-5 py-16 lg:px-8 lg:py-20">
         <div
@@ -47,15 +51,15 @@ export function PageHero({
         >
           <div className={cn(!aside && "max-w-3xl")}>
             <div className="page-hero__badge animate-fade-up">
-              <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-1.5 text-xs font-semibold text-accent-light backdrop-blur-sm">
+              <span className="inline-flex items-center gap-2 rounded-full bg-ink/5 px-4 py-1.5 text-xs font-semibold text-accent">
                 {badge}
               </span>
             </div>
-            <h1 className="page-hero__title animate-fade-up-delay mt-6 font-display text-4xl font-bold tracking-tight sm:text-5xl lg:text-[3.15rem] lg:leading-[1.08]">
+            <h1 className="page-hero__title animate-fade-up-delay mt-6 font-display text-4xl font-medium tracking-tight sm:text-5xl lg:text-[3.15rem] lg:leading-[1.08]">
               {title}
             </h1>
             {subtitle ? (
-              <p className="page-hero__subtitle animate-fade-up-delay mt-5 max-w-2xl text-lg leading-relaxed text-white/70">
+              <p className="page-hero__subtitle animate-fade-up-delay mt-5 max-w-2xl text-lg leading-relaxed text-muted">
                 {subtitle}
               </p>
             ) : null}
@@ -65,13 +69,15 @@ export function PageHero({
               </div>
             ) : null}
             {footer ? (
-              <div className="page-hero__footer animate-fade-up-delay-2 mt-6 text-sm font-medium text-white/50">
+              <div className="page-hero__footer animate-fade-up-delay-2 mt-6 text-sm font-medium text-muted">
                 {footer}
               </div>
             ) : null}
           </div>
           {aside ? (
-            <div className="animate-fade-up-delay-2 lg:justify-self-end">{aside}</div>
+            <div className="page-hero__aside animate-fade-up-delay-2 lg:justify-self-end">
+              {aside}
+            </div>
           ) : null}
         </div>
       </div>

@@ -22,7 +22,7 @@ export function Logo({ className, variant = "dark" }: Props) {
         alt="Pelago Consultants"
         width={180}
         height={56}
-        priority
+        preload
         className="h-9 w-auto sm:h-10"
       />
     </Link>

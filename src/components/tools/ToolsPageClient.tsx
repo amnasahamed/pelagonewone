@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState, useEffect } from "react";
+import { useMemo, useState } from "react";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import {
@@ -79,20 +79,14 @@ export function ToolsPageClient({ tools }: Props) {
   const toolParam = searchParams.get("tool") as ToolId | null;
 
   const [filter, setFilter] = useState<ToolCategory>("All");
-  const [activeId, setActiveId] = useState<ToolId>(FEATURED_ID);
+  const activeId =
+    toolParam && tools.some((tool) => tool.id === toolParam)
+      ? toolParam
+      : FEATURED_ID;
 
   const selectTool = (id: ToolId) => {
-    setActiveId(id);
     router.replace(`/tools/?tool=${id}`, { scroll: false });
   };
-
-  useEffect(() => {
-    if (toolParam && tools.some((t) => t.id === toolParam)) {
-      setActiveId(toolParam);
-      const t = tools.find((x) => x.id === toolParam);
-      if (t) setFilter("All");
-    }
-  }, [toolParam]);
 
   const activeTool = tools.find((t) => t.id === activeId) ?? tools[0];
   const theme = getToolTheme(activeTool);
@@ -104,7 +98,7 @@ export function ToolsPageClient({ tools }: Props) {
       map[t.category] = (map[t.category] ?? 0) + 1;
     }
     return map;
-  }, []);
+  }, [tools]);
 
   const filtered = useMemo(() => {
     const list =
@@ -113,7 +107,7 @@ export function ToolsPageClient({ tools }: Props) {
       return list.filter((t) => t.id !== FEATURED_ID);
     }
     return list;
-  }, [filter]);
+  }, [filter, tools]);
 
   const featured = tools.find((t) => t.id === FEATURED_ID)!;
   const featuredTheme = getToolTheme(featured);
@@ -147,7 +141,9 @@ export function ToolsPageClient({ tools }: Props) {
                     <h2 className="mt-4 font-display text-2xl font-bold">
                       {featured.name}
                     </h2>
-                    <p className="mt-2 text-sm text-white/80">{featured.desc}</p>
+                    <p className="mt-2 text-sm text-white/80">
+                      {featured.desc}
+                    </p>
                   </div>
                   <div className="p-6 lg:p-8">
                     <p className="text-xs font-semibold uppercase tracking-wide text-accent">
@@ -208,12 +204,16 @@ export function ToolsPageClient({ tools }: Props) {
                 <p className="text-xs font-medium uppercase tracking-wide text-white/70">
                   {activeTool.category}
                 </p>
-                <h2 className="font-display text-xl font-bold">{activeTool.name}</h2>
+                <h2 className="font-display text-xl font-bold">
+                  {activeTool.name}
+                </h2>
               </div>
             </div>
 
             <div className="p-6">
-              <p className="text-sm leading-relaxed text-muted">{activeTool.why}</p>
+              <p className="text-sm leading-relaxed text-muted">
+                {activeTool.why}
+              </p>
 
               <div className="mt-6 rounded-2xl border border-ink/6 bg-paper-warm p-5">
                 <ToolCalculatorPanel toolId={activeTool.id} />

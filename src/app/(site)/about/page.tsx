@@ -1,6 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, Award, MapPin, MessageCircle, ShieldCheck, Sparkles } from "lucide-react";
+import {
+  ArrowRight,
+  Award,
+  MapPin,
+  MessageCircle,
+  ShieldCheck,
+  Sparkles,
+} from "lucide-react";
 import { AboutOfficeGallery } from "@/components/about/AboutOfficeGallery";
 import { AboutStaffGrid } from "@/components/about/AboutStaffGrid";
 import { AboutTeamGrid } from "@/components/about/AboutTeamGrid";
@@ -24,7 +31,7 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = {
   title: "About Us",
   description:
-    "Meet the team behind Pelago Consultants — founders, operators, and compliance experts based at HiLITE Business Park, Kozhikode.",
+    "Meet the team behind Pelago Consultants — founders, operators, and compliance experts based at City Edge Building, Kozhikode.",
 };
 
 export default function AboutPage() {
@@ -40,7 +47,9 @@ export default function AboutPage() {
         title={
           <>
             We&apos;re founders helping
-            <span className="mt-2 block text-accent-light">other founders succeed</span>
+            <span className="mt-2 block text-accent-light">
+              other founders succeed
+            </span>
           </>
         }
         subtitle="Pelago started with a simple frustration: starting a business in India is way harder than it should be. So we decided to fix that."
@@ -68,7 +77,9 @@ export default function AboutPage() {
           <div className="grid grid-cols-2 gap-4 rounded-2xl border border-white/10 bg-white/10 p-5 backdrop-blur-md sm:p-6">
             {aboutProof.map((p) => (
               <div key={p.label} className="text-center">
-                <p className="font-display text-2xl font-bold sm:text-3xl">{p.value}</p>
+                <p className="font-display text-2xl font-bold sm:text-3xl">
+                  {p.value}
+                </p>
                 <p className="mt-1 text-[11px] font-medium uppercase tracking-wide text-white/55 sm:text-xs">
                   {p.label}
                 </p>
@@ -81,23 +92,35 @@ export default function AboutPage() {
       <section className="relative -mt-6 rounded-t-[2rem] border-t border-ink/6 bg-paper-warm pt-12 lg:pt-14">
         <div className="mx-auto max-w-7xl px-5 pb-16 lg:px-8 lg:pb-24">
           <PageSection className="grid gap-10 lg:grid-cols-2 lg:gap-16">
-            <MediaVisual imageKey="aboutTeam" className="aspect-[4/3] w-full rounded-3xl" priority />
+            <MediaVisual
+              imageKey="aboutTeam"
+              className="aspect-[4/3] w-full rounded-3xl"
+              priority
+            />
             <div>
-              <SectionHeader eyebrow="Our Story" title="There had to be a better way" />
+              <SectionHeader
+                eyebrow="Our Story"
+                title="There had to be a better way"
+              />
               <p className="mt-6 leading-relaxed text-muted">
-                Back in 2019, we were a group of founders who had just started our own businesses.
-                We quickly realized that the hardest part wasn&apos;t building the product or finding
-                customers — it was the paperwork.
+                Back in 2019, we were a group of founders who had just started
+                our own businesses. We quickly realized that the hardest part
+                wasn&apos;t building the product or finding customers — it was
+                the paperwork.
               </p>
               <p className="mt-4 leading-relaxed text-muted">
-                Government portals that crash. Forms that make no sense. Consultants who speak in
-                riddles and charge hidden fees. We thought:{" "}
-                <em className="font-medium text-ink">there has to be a better way.</em>
+                Government portals that crash. Forms that make no sense.
+                Consultants who speak in riddles and charge hidden fees. We
+                thought:{" "}
+                <em className="font-medium text-ink">
+                  there has to be a better way.
+                </em>
               </p>
               <p className="mt-4 leading-relaxed text-muted">
-                So we built it. Pelago was born from the simple idea that compliance should be easy,
-                transparent, and maybe even pleasant. Today, we&apos;ve helped over 6,000 founders
-                start and grow their businesses — and we&apos;re just getting started.
+                So we built it. Pelago was born from the simple idea that
+                compliance should be easy, transparent, and maybe even pleasant.
+                Today, we&apos;ve helped over 6,000 founders start and grow
+                their businesses — and we&apos;re just getting started.
               </p>
               <div className="mt-8 grid gap-4 sm:grid-cols-2">
                 <div className="rounded-2xl border border-ink/8 bg-white p-5">
@@ -105,8 +128,8 @@ export default function AboutPage() {
                     Our Mission
                   </p>
                   <p className="mt-2 text-sm leading-relaxed text-muted">
-                    To make business compliance so simple that founders can focus on what they do
-                    best — building great companies.
+                    To make business compliance so simple that founders can
+                    focus on what they do best — building great companies.
                   </p>
                 </div>
                 <div className="rounded-2xl border border-ink/8 bg-white p-5">
@@ -114,8 +137,8 @@ export default function AboutPage() {
                     Our Vision
                   </p>
                   <p className="mt-2 text-sm leading-relaxed text-muted">
-                    A world where starting a business is as easy as downloading an app. Where every
-                    entrepreneur has access to expert help.
+                    A world where starting a business is as easy as downloading
+                    an app. Where every entrepreneur has access to expert help.
                   </p>
                 </div>
               </div>
@@ -141,8 +164,12 @@ export default function AboutPage() {
                   <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-accent/10 text-accent">
                     <Sparkles size={22} />
                   </span>
-                  <h3 className="mt-4 font-display text-lg font-bold text-ink">{belief.title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-muted">{belief.desc}</p>
+                  <h3 className="mt-4 font-display text-lg font-bold text-ink">
+                    {belief.title}
+                  </h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted">
+                    {belief.desc}
+                  </p>
                 </li>
               ))}
             </ul>
@@ -192,7 +219,9 @@ export default function AboutPage() {
                   <ShieldCheck size={22} />
                 </span>
                 <div>
-                  <p className="font-display text-lg font-bold text-ink">{cert.title}</p>
+                  <p className="font-display text-lg font-bold text-ink">
+                    {cert.title}
+                  </p>
                   <p className="mt-1 text-sm text-muted">{cert.subtitle}</p>
                 </div>
               </li>
@@ -204,7 +233,9 @@ export default function AboutPage() {
                 key={stat.label}
                 className="rounded-2xl border border-accent/15 bg-accent/5 px-5 py-6 text-center"
               >
-                <p className="font-display text-3xl font-bold text-ink">{stat.value}</p>
+                <p className="font-display text-3xl font-bold text-ink">
+                  {stat.value}
+                </p>
                 <p className="mt-1 text-xs font-semibold uppercase tracking-wide text-muted">
                   {stat.label}
                 </p>
@@ -221,15 +252,24 @@ export default function AboutPage() {
               <SectionHeader
                 eyebrow="Our Home"
                 title="Where we work (and occasionally play)"
-                subtitle="Our office at HiLite Business Park, Calicut — come visit us!"
+                subtitle="Visit us at City Edge Building, Kozhikode — we'd love to meet you."
               />
               <p className="mt-4 flex items-start gap-2 text-muted leading-relaxed">
-                <MapPin size={18} className="mt-0.5 shrink-0 text-accent" aria-hidden />
+                <MapPin
+                  size={18}
+                  className="mt-0.5 shrink-0 text-accent"
+                  aria-hidden
+                />
                 {site.address.join(", ")}
               </p>
-              <Button href={site.whatsapp} variant="whatsapp" external className="mt-8">
-                Message on WhatsApp
-              </Button>
+              <div className="mt-8 flex flex-wrap gap-3">
+                <Button href={site.whatsapp} variant="whatsapp" external>
+                  Message on WhatsApp
+                </Button>
+                <Button href={site.googleBusiness} variant="secondary" external>
+                  Get directions
+                </Button>
+              </div>
             </div>
             <AboutOfficeGallery photos={officeGallery} />
           </PageSection>

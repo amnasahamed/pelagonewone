@@ -104,59 +104,60 @@ export default async function LessonPage({ params }: Props) {
             />
           </aside>
 
-          <main>
+          <div>
             <PageSection variant="subtle">
-            <article className="overflow-hidden rounded-2xl border border-ink/8 bg-white shadow-[var(--shadow-card)]">
-              <div
-                className="border-b border-ink/6 px-6 py-4 lg:px-10"
-                style={{ background: theme.accentSoft }}
-              >
-                <p className="text-sm font-medium text-ink">
-                  Lesson content
-                </p>
-                <p className="text-xs text-muted">
-                  Scroll through numbered sections or jump via the outline.
-                </p>
-              </div>
+              <article className="overflow-hidden rounded-2xl border border-ink/8 bg-white shadow-[var(--shadow-card)]">
+                <div
+                  className="border-b border-ink/6 px-6 py-4 lg:px-10"
+                  style={{ background: theme.accentSoft }}
+                >
+                  <p className="text-sm font-medium text-ink">Lesson content</p>
+                  <p className="text-xs text-muted">
+                    Scroll through numbered sections or jump via the outline.
+                  </p>
+                </div>
 
-              <div className="px-6 py-10 lg:px-10 lg:py-12">
-                {content.keyTakeaways && content.keyTakeaways.length > 0 && (
-                  <div className="mb-10 rounded-2xl border border-accent/15 bg-accent/[0.04] p-6 sm:p-8">
-                    <p className="text-xs font-bold uppercase tracking-wider text-accent">
-                      What you&apos;ll take away
-                    </p>
-                    <ul className="mt-4 space-y-3">
-                      {content.keyTakeaways.map((item) => (
-                        <li
-                          key={item.slice(0, 48)}
-                          className="flex gap-3 text-[1.02rem] leading-relaxed text-ink/90"
-                        >
-                          <CheckCircle2
-                            size={20}
-                            className="mt-0.5 shrink-0 text-accent"
-                            aria-hidden
-                          />
-                          <span>{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
+                <div className="px-6 py-10 lg:px-10 lg:py-12">
+                  {content.keyTakeaways && content.keyTakeaways.length > 0 && (
+                    <div className="mb-10 rounded-2xl border border-accent/15 bg-accent/[0.04] p-6 sm:p-8">
+                      <p className="text-xs font-bold uppercase tracking-wider text-accent">
+                        What you&apos;ll take away
+                      </p>
+                      <ul className="mt-4 space-y-3">
+                        {content.keyTakeaways.map((item) => (
+                          <li
+                            key={item.slice(0, 48)}
+                            className="flex gap-3 text-[1.02rem] leading-relaxed text-ink/90"
+                          >
+                            <CheckCircle2
+                              size={20}
+                              className="mt-0.5 shrink-0 text-accent"
+                              aria-hidden
+                            />
+                            <span>{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
 
-                <LessonContent sections={content.sections} />
-              </div>
-            </article>
+                  <LessonContent sections={content.sections} />
+                </div>
+              </article>
             </PageSection>
 
             <PageSection delay={80}>
-            <LessonPagination lessonId={lessonId} modules={modules} />
+              <LessonPagination lessonId={lessonId} modules={modules} />
             </PageSection>
-          </main>
+          </div>
         </div>
       </div>
 
       <CtaBand
-        title={content.cta?.title ?? "Questions about this lesson? Talk to an advisor."}
+        title={
+          content.cta?.title ??
+          "Questions about this lesson? Talk to an advisor."
+        }
         subtitle={content.cta?.subtitle}
       />
     </div>

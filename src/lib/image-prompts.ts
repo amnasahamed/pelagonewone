@@ -4,19 +4,18 @@ export const imagePrompts = {
   hero: {
     path: "/office/office-3.jpg",
     prompt:
-      "Pelago leadership team group portrait — five founders in business casual at HiLITE Business Park, Kozhikode",
+      "Pelago leadership team group portrait — five founders in business casual in Kozhikode",
     aspect: "4:5",
   },
   aboutTeam: {
     path: "/office/office-3.jpg",
     prompt:
-      "Pelago leadership team group portrait — five founders in business casual at HiLITE Business Park, Kozhikode",
+      "Pelago leadership team group portrait — five founders in business casual in Kozhikode",
     aspect: "4:3",
   },
   aboutOffice: {
     path: "/office/office-2.jpg",
-    prompt:
-      "Pelago team collaborating at shared desks in HiLITE Business Park office, Kozhikode",
+    prompt: "Pelago team collaborating at shared desks at the Kozhikode office",
     aspect: "3:2",
   },
   servicesStart: {
@@ -28,19 +27,18 @@ export const imagePrompts = {
   servicesTax: {
     path: "/office/office-6.jpg",
     prompt:
-      "Pelago advisor reviewing financial ratios and cash-flow data on a laptop at HiLITE Business Park",
+      "Pelago advisor reviewing financial ratios and cash-flow data on a laptop at the Kozhikode office",
     aspect: "16:10",
   },
   contact: {
     path: "/office/office-5.jpg",
     prompt:
-      "Pelago advisors in a client strategy meeting around a desk at HiLITE Business Park",
+      "Pelago advisors in a client strategy meeting around a desk at the Kozhikode office",
     aspect: "16:9",
   },
   careers: {
     path: "/office/office-4.jpg",
-    prompt:
-      "Pelago team working at open-plan desks in the HiLITE Business Park office, Kozhikode",
+    prompt: "Pelago team working at open-plan desks at the Kozhikode office",
     aspect: "16:9",
   },
   blogDefault: {

@@ -18,7 +18,20 @@ export function MediaVisual({
 }: Props) {
   const { path, prompt } = imagePrompts[imageKey];
   const src = stockImages[imageKey] ?? path;
-  const alt = prompt.split(",")[0]?.trim() ?? "Pelago Consultants";
+  const descriptions: Partial<Record<ImagePromptKey, string>> = {
+    hero: "A travertine staircase with blue stone accents, representing strong business foundations",
+    aboutTeam: "Pelago leadership team in Kozhikode",
+    aboutOffice: "Inside Pelago’s office in Kozhikode",
+    contact: "Pelago advisors reviewing business paperwork together",
+    careers: "Pelago team collaborating at their Kozhikode office",
+    servicesStart:
+      "Blue stone and ivory travertine blocks forming a stable foundation",
+    blogDefault: "An open notebook and blue book on a stone tabletop",
+  };
+  const alt =
+    descriptions[imageKey] ??
+    prompt.split(",")[0]?.trim() ??
+    "Pelago Consultants";
 
   return (
     <figure
@@ -31,7 +44,7 @@ export function MediaVisual({
         src={src}
         alt={alt}
         fill
-        priority={priority}
+        preload={priority}
         sizes="(max-width: 1024px) 100vw, 560px"
         className="object-cover transition-transform duration-700 hover:scale-[1.02]"
       />

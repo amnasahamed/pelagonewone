@@ -14,7 +14,9 @@ export function ClientsPageClient({ clients }: { clients: Client[] }) {
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
     if (!q) return clients;
-    return clients.filter((c) => c.name.toLowerCase().includes(q));
+    return clients.filter((c) =>
+      `${c.name} ${c.brandName ?? ""}`.toLowerCase().includes(q),
+    );
   }, [query, clients]);
 
   const logoCount = filtered.filter((client) => client.logo).length;
@@ -58,7 +60,8 @@ export function ClientsPageClient({ clients }: { clients: Client[] }) {
       {filtered.length === 0 ? (
         <PageSection delay={80} className="mt-12">
           <p className="rounded-2xl border border-dashed border-ink/15 bg-paper-warm px-6 py-12 text-center text-muted">
-            No clients match your search. Try a different name or clear the search.
+            No clients match your search. Try a different name or clear the
+            search.
           </p>
         </PageSection>
       ) : (

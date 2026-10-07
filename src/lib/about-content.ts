@@ -20,30 +20,42 @@ export const leadershipTeam = [
     image: "/team/team-nandhan.png",
   },
   {
-    name: "Amnas Ahammed",
-    role: "Chief Technology Officer",
-    bio: "Tech enthusiast building tools to make compliance effortless for founders.",
-    image: "/team/team-amnas.png",
-  },
-  {
     name: "Salim",
     role: "Chief Compliance Officer",
     bio: "Legal expert who knows every government form so you don't have to.",
     image: "/team/team-salim.png",
   },
+  {
+    name: "Amnas Ahammed",
+    role: "Chief Technology Officer",
+    bio: "Tech enthusiast building tools to make compliance effortless for founders.",
+    image: "/team/team-amnas.png",
+  },
 ] as const;
 
 export const extendedTeam = [
   { name: "Deeksha", role: "Business Associate", image: "/staff/deeksha.jpg" },
-  { name: "Farshana", role: "Compliance Executive", image: "/staff/farshana.jpg" },
+  {
+    name: "Farshana",
+    role: "Compliance Executive",
+    image: "/staff/farshana.jpg",
+  },
   { name: "Jazil", role: "Business Associate", image: "/staff/jazil.jpg" },
   { name: "Kochu", role: "Compliance Executive", image: "/staff/kochu.jpg" },
   { name: "Lena", role: "Business Associate", image: "/staff/lena.jpg" },
   { name: "Lubna", role: "Compliance Executive", image: "/staff/lubna.jpg" },
-  { name: "Maneesha", role: "Business Associate", image: "/staff/maneesha.jpg" },
+  {
+    name: "Maneesha",
+    role: "Business Associate",
+    image: "/staff/maneesha.jpg",
+  },
   { name: "Naja", role: "Compliance Executive", image: "/staff/naja.jpg" },
   { name: "Raniya", role: "Business Associate", image: "/staff/raniya.jpg" },
-  { name: "Sameera", role: "Compliance Executive", image: "/staff/sameera.jpg" },
+  {
+    name: "Sameera",
+    role: "Compliance Executive",
+    image: "/staff/sameera.jpg",
+  },
   { name: "Shehin", role: "Business Associate", image: "/staff/shehin.jpg" },
 ] as const;
 
@@ -54,7 +66,7 @@ export const officeGallery = [
   },
   {
     src: "/office/office-2.jpg",
-    alt: "Pelago team collaborating at shared desks in HiLITE Business Park",
+    alt: "Pelago team collaborating at shared desks in Kozhikode",
   },
   {
     src: "/office/office-3.jpg",
@@ -62,7 +74,7 @@ export const officeGallery = [
   },
   {
     src: "/office/office-4.jpg",
-    alt: "Pelago office interior at HiLITE Business Park",
+    alt: "Pelago office interior in Kozhikode",
   },
   {
     src: "/office/office-5.jpg",
@@ -85,7 +97,7 @@ export const officeGallery = [
 export const aboutBeliefs = [
   {
     title: "Founders First",
-    desc: 'We\'ve been in your shoes. Every decision we make starts with: "What\'s best for the founder?"',
+    desc: "We've been in your shoes. Every decision we make starts with: \"What's best for the founder?\"",
   },
   {
     title: "No Jargon, Ever",

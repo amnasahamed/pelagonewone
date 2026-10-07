@@ -1,20 +1,32 @@
 import type { Metadata } from "next";
-import { Fraunces, Plus_Jakarta_Sans } from "next/font/google";
+import localFont from "next/font/local";
 import { site } from "@/lib/site";
 import "./globals.css";
+import "./redesign.css";
 
-const jakarta = Plus_Jakarta_Sans({
+const jakarta = localFont({
+  src: "./fonts/jakarta-latin.woff2",
   variable: "--font-jakarta",
-  subsets: ["latin"],
   display: "swap",
-  weight: ["400", "500", "600", "700", "800"],
+  weight: "400 800",
+  style: "normal",
 });
 
-const fraunces = Fraunces({
+const fraunces = localFont({
+  src: [
+    {
+      path: "./fonts/fraunces-normal-latin.woff2",
+      weight: "400 800",
+      style: "normal",
+    },
+    {
+      path: "./fonts/fraunces-italic-latin.woff2",
+      weight: "400 800",
+      style: "italic",
+    },
+  ],
   variable: "--font-fraunces",
-  subsets: ["latin"],
   display: "swap",
-  weight: ["600", "700", "800"],
 });
 
 export const metadata: Metadata = {

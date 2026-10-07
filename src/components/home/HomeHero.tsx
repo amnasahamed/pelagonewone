@@ -1,105 +1,119 @@
 import Image from "next/image";
 import Link from "next/link";
-import {
-  ArrowRight,
-  Award,
-  MessageCircle,
-  ShieldCheck,
-  Star,
-  Users,
-} from "lucide-react";
-import { HomeHeroStats } from "@/components/home/HomeHeroStats";
 import { Button } from "@/components/ui/Button";
+import { ArrowIcon } from "@/components/ui/ArrowIcon";
 import type { HomePageContent } from "@/lib/home-types";
 
-type Props = Pick<HomePageContent, "hero">;
-
-export function HomeHero({ hero }: Props) {
+export function HomeHero({ hero }: Pick<HomePageContent, "hero">) {
   return (
-    <section className="home-hero home-hero--reference relative overflow-hidden">
-      <div className="home-hero__bg pointer-events-none absolute inset-0" aria-hidden>
-        <Image
-          src="/images/hero-background.png"
-          alt=""
-          fill
-          priority
-          className="object-cover object-[72%_42%] sm:object-[68%_40%] lg:object-[58%_38%] xl:object-[52%_36%]"
-          sizes="100vw"
-        />
-        <div className="home-hero__scrim absolute inset-0" />
-      </div>
-
-      <div className="relative z-10 mx-auto max-w-7xl px-5 pb-10 pt-8 lg:px-8 lg:pb-14 lg:pt-10">
-        <div className="grid items-center gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)] lg:gap-6 xl:gap-10">
-          <div className="max-w-xl lg:max-w-[34rem]">
-            <span className="inline-flex items-center gap-2 rounded-full border border-ink/[0.08] bg-white/85 px-3.5 py-1.5 text-[10px] font-semibold uppercase tracking-[0.14em] text-muted backdrop-blur-sm">
-              <Award size={12} className="text-accent" aria-hidden />
-              {hero.badge}
-            </span>
-
-            <h1 className="mt-7 font-display text-[2.35rem] font-bold leading-[1.07] tracking-tight sm:text-[2.85rem] lg:text-[3.15rem] xl:text-[3.35rem]">
-              <span className="block text-ink">{hero.headlineLine1}</span>
-              <span className="mt-1 block text-accent">{hero.headlineLine2}</span>
-            </h1>
-
-            <p className="mt-5 max-w-md text-base leading-relaxed text-muted sm:text-[1.05rem] lg:max-w-lg">
-              {hero.description}
-            </p>
-
-            <div className="mt-8 flex flex-wrap items-center gap-3">
-              <Link
-                href="/contact"
-                className="inline-flex items-center gap-3 rounded-xl bg-accent px-5 py-3.5 text-sm font-semibold text-white shadow-[0_10px_28px_-10px_rgba(58,103,216,0.55)] transition-all hover:bg-accent-hover active:scale-[0.98]"
-              >
-                Start your business
-                <span className="flex h-7 w-7 items-center justify-center rounded-full bg-white/20">
-                  <ArrowRight size={14} aria-hidden />
-                </span>
-              </Link>
-              <Button href="/startup-bundle" variant="secondary" className="!rounded-xl !px-5">
-                View packages
-              </Button>
-            </div>
-
-            <ul
-              className="mt-8 flex flex-wrap items-center gap-x-5 gap-y-3 sm:gap-x-6"
-              aria-label="Trust indicators"
-            >
-              {hero.trustItems.map((item) => (
-                <li key={item.label} className="flex items-center gap-2 text-sm">
-                  <span
-                    className="flex h-8 w-8 items-center justify-center rounded-lg bg-white shadow-sm ring-1 ring-ink/[0.06]"
-                    aria-hidden
-                  >
-                    {item.icon === "users" && <Users size={15} className="text-accent" />}
-                    {item.icon === "star" && (
-                      <Star size={15} className="fill-amber-400 text-amber-400" />
-                    )}
-                    {item.icon === "shield" && (
-                      <ShieldCheck size={15} className="text-emerald-500" />
-                    )}
-                  </span>
-                  <span className="text-ink/90">
-                    <span className="font-semibold text-ink">{item.value}</span>{" "}
-                    <span className="text-muted">{item.label}</span>
-                  </span>
-                </li>
+    <section className="editorial-hero" aria-labelledby="home-title">
+      <div className="editorial-container editorial-hero__grid">
+        <div className="editorial-hero__copy">
+          <p className="eyebrow">
+            <span className="status-dot" /> Your business. In good hands.
+          </p>
+          <h1 id="home-title">
+            {hero.headlineLine1}
+            <br />
+            <span className="editorial-text">{hero.headlineLine2}</span>
+          </h1>
+          <p className="editorial-hero__description">{hero.description}</p>
+          <div className="editorial-hero__actions">
+            <Button href="/contact">Find your next step</Button>
+            <Link href="/services" className="text-link">
+              Explore our services <ArrowIcon />
+            </Link>
+          </div>
+          <div className="hero-advisors">
+            <div className="hero-advisors__faces" aria-hidden="true">
+              {["minhaj", "sahil", "salim"].map((name) => (
+                <Image
+                  key={name}
+                  src={`/team/team-${name}.png`}
+                  alt=""
+                  width={44}
+                  height={44}
+                />
               ))}
-            </ul>
-
-            <p className="mt-5 flex items-center gap-2 text-sm">
-              <MessageCircle size={16} className="shrink-0 text-[#25D366]" aria-hidden />
-              <span>
-                <span className="font-semibold text-[#128C7E]">WhatsApp updates</span>
-                <span className="text-muted"> · Real-time updates at every step</span>
-              </span>
+            </div>
+            <p>
+              Real people. Personal support.
+              <br />
+              <span>One dedicated advisor, every step.</span>
             </p>
           </div>
-
-          <div className="hidden min-h-[280px] lg:block" aria-hidden />
         </div>
-
-        <HomeHeroStats />
+        <div className="editorial-hero__visual">
+          <div className="hero-photo-shell">
+            <div className="hero-photo">
+              <Image
+                src="/images/editorial/foundations-hero.jpg"
+                alt="A sculptural travertine staircase with blue stone accents, representing strong foundations and steady growth"
+                fill
+                preload
+                sizes="(max-width: 900px) 90vw, 44vw"
+              />
+              <div className="hero-photo__caption">
+                <span>
+                  A stronger start.
+                  <br />A clearer way forward.
+                </span>
+                <span className="hero-photo__location">
+                  THE PELAGO APPROACH ↗
+                </span>
+              </div>
+            </div>
+          </div>
+          <div className="hero-certified">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.4"
+              aria-hidden="true"
+            >
+              <path d="m12 2 3 2 3.5.5.5 3.5 2 4-2 3-.5 3.5-3.5.5-3 2-3-2-3.5-.5L5.5 15l-2-3 2-4L6 4.5 9 4Z" />
+              <path d="m8 12 2.5 2.5L16 9" />
+            </svg>
+            <span>
+              Startup India
+              <br />
+              <strong>Recognised</strong>
+            </span>
+          </div>
+          <Link className="hero-service-note" href="/startup-bundle">
+            <span className="hero-service-note__icon">
+              <ArrowIcon diagonal />
+            </span>
+            <span>
+              <small>FROM IDEA TO INCORPORATION</small>
+              <strong>Start with a solid foundation.</strong>
+            </span>
+            <ArrowIcon />
+          </Link>
+          <span className="hero-side-label" aria-hidden="true">
+            YOUR LONG-TERM BUSINESS PARTNER
+          </span>
+        </div>
+      </div>
+      <div className="editorial-container hero-proof">
+        <p>
+          Clarity from day one.
+          <br />
+          <span>Confidence for the long run.</span>
+        </p>
+        {hero.trustItems
+          .filter((item) => item.icon !== "shield")
+          .map((item) => (
+            <div className="hero-proof__item" key={item.label}>
+              <strong>{item.value}</strong>
+              <span>{item.label}</span>
+            </div>
+          ))}
+        <div className="hero-proof__item">
+          <strong>One team.</strong>
+          <span>Registration to annual filing</span>
+        </div>
       </div>
     </section>
   );

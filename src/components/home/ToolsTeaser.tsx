@@ -1,75 +1,52 @@
-import { ArrowRight, Calculator, Sparkles } from "lucide-react";
 import Link from "next/link";
-import { Button } from "@/components/ui/Button";
+import { ArrowIcon } from "@/components/ui/ArrowIcon";
 import { RevealOnScroll } from "@/components/ui/RevealOnScroll";
 import type { ToolDefinition } from "@/lib/tools";
 import { featuredTools } from "@/lib/home-content";
 
 export function ToolsTeaser({ tools }: { tools: ToolDefinition[] }) {
-  const items = featuredTools.map((f) => {
-    const tool = tools.find((t) => t.id === f.id)!;
-    return { ...f, desc: tool.desc, valueLabel: tool.valueLabel };
+  const items = featuredTools.flatMap((featured) => {
+    const tool = tools.find((t) => t.id === featured.id);
+    return tool ? [{ ...tool, label: featured.label }] : [];
   });
-
   return (
-    <section className="home-section-pad home-surface-white border-t border-ink/6">
-      <div className="mx-auto max-w-7xl px-5 lg:px-8">
-        <RevealOnScroll variant="rise">
-          <div className="home-tools-panel overflow-hidden rounded-[1.75rem] p-8 sm:p-10 lg:p-12">
-            <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-end lg:gap-14">
-              <div>
-                <span className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs font-bold uppercase tracking-wider text-white/80">
-                  <Sparkles size={12} />
-                  Free tools
-                </span>
-                <h2 className="mt-5 font-display text-3xl font-bold leading-tight text-white sm:text-4xl">
-                  Check the numbers before you hire anyone
-                </h2>
-                <p className="mt-4 max-w-sm text-base leading-relaxed text-white/65">
-                  GST, incorporation costs, and runway — no signup, no sales call.
-                </p>
-                <Button
-                  href="/tools"
-                  variant="outline-light"
-                  className="mt-8 !border-white/30 !bg-white !text-ink hover:!bg-white/95"
-                >
-                  All free calculators
-                  <ArrowRight size={16} />
-                </Button>
-              </div>
-
-              <ul className="grid gap-3 sm:grid-cols-3">
-                {items.map((item) => (
-                  <li key={item.id}>
-                    <Link
-                      href={`/tools?tool=${item.id}`}
-                      className="home-tool-card group flex h-full flex-col"
-                    >
-                      <span className="home-tool-card__badge">Free</span>
-                      <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-white/15 text-white transition-colors group-hover:bg-white group-hover:text-navy">
-                        <Calculator size={18} />
-                      </span>
-                      <p className="mt-4 font-display text-base font-bold text-white">
-                        {item.label}
-                      </p>
-                      <p className="mt-2 line-clamp-2 flex-1 text-xs leading-relaxed text-white/55">
-                        {item.desc}
-                      </p>
-                      <div className="home-tool-card__preview mt-4" aria-hidden>
-                        <div className="home-tool-card__preview-bar" />
-                        <div className="home-tool-card__preview-bar home-tool-card__preview-bar--short" />
-                        <div className="home-tool-card__preview-bar home-tool-card__preview-bar--accent" />
-                      </div>
-                      <span className="mt-3 text-[10px] font-bold uppercase tracking-wider text-accent-light">
-                        {item.valueLabel}
-                      </span>
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
+    <section className="editorial-section tools-editorial">
+      <div className="editorial-container tools-layout">
+        <RevealOnScroll>
+          <p className="eyebrow">04 / A little clarity, on us</p>
+          <h2>
+            Know your numbers.
+            <br />
+            <span className="editorial-text">Find your footing.</span>
+          </h2>
+          <p className="section-description">
+            Practical tools for everyday business decisions.
+            <br />
+            Free to use. No account needed.
+          </p>
+          <Link className="text-link" href="/tools">
+            Explore all calculators <ArrowIcon diagonal />
+          </Link>
         </RevealOnScroll>
+        <div className="tools-list">
+          {items.map((item, i) => (
+            <RevealOnScroll key={item.id} delay={i * 60}>
+              <Link href={`/tools?tool=${item.id}`} className="tool-editorial">
+                <span className="tool-editorial__symbol" aria-hidden="true">
+                  {i === 0 ? "%" : i === 1 ? "₹" : "↗"}
+                </span>
+                <span>
+                  <small>{item.category} / Free tool</small>
+                  <strong>{item.label}</strong>
+                  <span>{item.valueLabel}</span>
+                </span>
+                <span className="round-arrow">
+                  <ArrowIcon diagonal />
+                </span>
+              </Link>
+            </RevealOnScroll>
+          ))}
+        </div>
       </div>
     </section>
   );

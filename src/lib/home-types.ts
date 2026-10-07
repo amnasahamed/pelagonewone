@@ -82,10 +82,10 @@ export type HomePageContent = {
 export const staticHomePage: HomePageContent = {
   hero: {
     badge: "Startup India certified · Kozhikode",
-    headlineLine1: "Build your company.",
-    headlineLine2: "We'll handle compliance.",
+    headlineLine1: "Big ambitions.",
+    headlineLine2: "Solid foundations.",
     description:
-      "From incorporation to annual filing, one advisor on WhatsApp, every step of the way.",
+      "Build the business you believe in. We take care of registration, tax, and compliance — with one dedicated advisor, from day one.",
     trustItems: [
       { icon: "users", value: "6,000+", label: "Founders served" },
       { icon: "star", value: "4.9/5", label: "Client rating" },
@@ -119,9 +119,9 @@ export const staticHomePage: HomePageContent = {
     }),
   ),
   cta: {
-    title: "Not sure what your business needs?",
+    title: "Your next chapter starts with a conversation.",
     subtitle:
-      "Tell us your stage — we'll recommend the right filings. No pressure, reply within 2 hours.",
+      "Tell us where you are and where you want to go. We’ll help you find the right next step.",
   },
 };
 
@@ -129,6 +129,9 @@ export function serviceHighlightsMap(
   highlights: HomeServiceHighlight[],
 ): Record<string, { fromPrice: string; timeline: string }> {
   return Object.fromEntries(
-    highlights.map((h) => [h.sectionId, { fromPrice: h.fromPrice, timeline: h.timeline }]),
+    highlights.map((h) => [
+      h.sectionId,
+      { fromPrice: h.fromPrice, timeline: h.timeline },
+    ]),
   );
 }

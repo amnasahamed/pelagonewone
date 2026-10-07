@@ -21,7 +21,7 @@ export const culturePerks = [
   },
   {
     title: "Hybrid & remote-friendly",
-    desc: "Kozhikode HQ at HiLITE Business Park; several roles are remote across India.",
+    desc: "Kozhikode HQ at City Edge Building; several roles are remote across India.",
     icon: "map" as const,
   },
   {
@@ -32,10 +32,26 @@ export const culturePerks = [
 ] as const;
 
 export const hiringSteps = [
-  { step: "01", title: "Intro email", desc: "Tell us the role, link your CV or LinkedIn, and one paragraph on why Pelago." },
-  { step: "02", title: "Conversation", desc: "30–45 min with a lead—culture fit and how you think through messy founder questions." },
-  { step: "03", title: "Short task", desc: "Role-specific (writing sample, mock client email, or compliance checklist)—paid where applicable." },
-  { step: "04", title: "Offer", desc: "Clear CTC, location, and start date. We move fast when it's a mutual yes." },
+  {
+    step: "01",
+    title: "Intro email",
+    desc: "Tell us the role, link your CV or LinkedIn, and one paragraph on why Pelago.",
+  },
+  {
+    step: "02",
+    title: "Conversation",
+    desc: "30–45 min with a lead—culture fit and how you think through messy founder questions.",
+  },
+  {
+    step: "03",
+    title: "Short task",
+    desc: "Role-specific (writing sample, mock client email, or compliance checklist)—paid where applicable.",
+  },
+  {
+    step: "04",
+    title: "Offer",
+    desc: "Clear CTC, location, and start date. We move fast when it's a mutual yes.",
+  },
 ] as const;
 
 export const careerRoles: CareerRole[] = [
@@ -44,7 +60,8 @@ export const careerRoles: CareerRole[] = [
     title: "Compliance Associate",
     location: "Kozhikode / Hybrid",
     type: "Full-time",
-    summary: "Own filings end-to-end for startup clients—from document collection to MCA/GST status updates.",
+    summary:
+      "Own filings end-to-end for startup clients—from document collection to MCA/GST status updates.",
     responsibilities: [
       "Prepare and review SPICe+, GST, ROC, and TDS filings with senior review.",
       "Track government portal statuses and chase clients for missing docs politely.",
@@ -61,7 +78,8 @@ export const careerRoles: CareerRole[] = [
     title: "Inside Sales — Startup Segment",
     location: "Kozhikode",
     type: "Full-time",
-    summary: "Help founders choose the right package—incorporation, GST, trademark—not oversell what they don't need.",
+    summary:
+      "Help founders choose the right package—incorporation, GST, trademark—not oversell what they don't need.",
     responsibilities: [
       "Respond to inbound WhatsApp and web leads within SLA.",
       "Qualify stage (idea, incorporated, funded) and route to the right service bundle.",
@@ -78,7 +96,8 @@ export const careerRoles: CareerRole[] = [
     title: "Content Writer (Business / Tax)",
     location: "Remote (India)",
     type: "Part-time",
-    summary: "Turn complex Indian compliance topics into guides founders actually read—blog, Learn, and WhatsApp snippets.",
+    summary:
+      "Turn complex Indian compliance topics into guides founders actually read—blog, Learn, and WhatsApp snippets.",
     responsibilities: [
       "Draft and update blog posts and lesson outlines with legal/factual review.",
       "Maintain tone: practical, India-specific, no AI slop or generic US advice.",
