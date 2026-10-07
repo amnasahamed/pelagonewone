@@ -10,9 +10,9 @@ Document root: `/var/www/057de4ba-9d3f-4436-ab56-12b994e23b9d/pelagoconsultants.
 
 Run `npm ci`, then `npm run lint` and `npm run build`. The build uses Webpack and exports HTML, JavaScript, styles, and images to `out/`. The server serves these files directly; Node.js is unnecessary. `next start` does not serve an export. For a local preview, use `python3 -m http.server 3002 --directory out`.
 
-Contact submissions go directly from the browser to Web3Forms. Set `NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY` before building, using the form key created for the receiving inbox. This key is public and is included in the browser bundle. Never substitute a Resend key or private API token. Without the key, the form shows alternative contact links and disables submission.
+The contact form prepares a WhatsApp draft for the senior consultant at `+91 79946 59991`. Visitors review the message in WhatsApp and press Send themselves. No email service, form API key, or server endpoint is required. The destination is configured in `src/lib/site.ts`.
 
-Sanity content is read at build time when configured; changes require a rebuild. Studio is exported at `/studio/` with hash navigation, so document links do not require a server-side catch-all. `/api/health` is a static build marker with `generatedAt`, not a live server uptime response. The old contact Server Action is retained for reference but is no longer imported by the static contact form.
+Sanity content is read at build time when configured; changes require a rebuild. Studio is exported at `/studio/` with hash navigation, so document links do not require a server-side catch-all. `/api/health` is a static build marker with `generatedAt`, not a live server uptime response.
 
 ## GitHub Actions configuration
 
@@ -22,7 +22,6 @@ Add repository Actions secrets:
 | --- | --- |
 | `DEPLOY_SSH_KEY` | Dedicated deployment private key; never commit it |
 | `DEPLOY_KNOWN_HOSTS` | Verified line `infinity.herosite.pro ssh-ed25519 PUBLIC_SERVER_HOST_KEY` |
-| `NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY` | Public Web3Forms form key for the receiving inbox |
 
 Optional repository variables: `NEXT_PUBLIC_SANITY_PROJECT_ID`, `NEXT_PUBLIC_SANITY_DATASET`, `NEXT_PUBLIC_SANITY_API_VERSION`. Do not add a Sanity write token to the workflow.
 
@@ -32,7 +31,7 @@ Authorise the dedicated deployment **public** key in the server account's `~/.ss
 
 ## Deployment sequence
 
-Pushes to `main` and manual workflow runs build and validate the export before accessing the server. Missing form/SSH configuration fails the job without changing the live site. Deployments run sequentially.
+Pushes to `main` and manual workflow runs build and validate the export before accessing the server. Missing SSH configuration fails the job without changing the live site. Deployments run sequentially.
 
 The workflow uploads a complete staging copy outside the document root, then backs up the existing site under the account's `deploy-backups/`. It synchronises the staged files into the live directory using delayed updates and deletes stale files after transfer. Existing `.htaccess`, `.well-known/`, and hosting `error_pages/` are preserved. A failed promotion restores the backup. The workflow then verifies that the public `/deployment.txt` matches the deployed Git commit.
 

@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { Suspense } from "react";
 import { MessageCircle, Mail, MapPin, Phone } from "lucide-react";
 import { MediaVisual } from "@/components/MediaVisual";
 import { ContactForm } from "@/components/ContactForm";
@@ -130,13 +129,7 @@ export default function ContactPage() {
               imageKey="contact"
               className="aspect-[4/3] w-full rounded-3xl"
             />
-            <Suspense
-              fallback={
-                <div className="h-96 animate-pulse rounded-2xl border border-ink/8 bg-white/60" />
-              }
-            >
-              <ContactForm />
-            </Suspense>
+            <ContactForm />
           </PageSection>
         </div>
       </section>

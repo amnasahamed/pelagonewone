@@ -6,12 +6,13 @@ import {
   ArrowRight,
   BookOpen,
   Clock,
-  Mail,
+  MessageCircle,
   Sparkles,
   TrendingUp,
 } from "lucide-react";
 import type { BlogCategory, BlogPost } from "@/lib/blog";
 import { blogCategories } from "@/lib/blog";
+import { site } from "@/lib/site";
 import { getBlogCategoryTheme } from "@/lib/blog-theme";
 import { BlogCategoryVisual } from "@/components/blog/BlogCategoryVisual";
 import { PageSection } from "@/components/PageSection";
@@ -106,7 +107,6 @@ function PostCard({ post, featured = false }: { post: BlogPost; featured?: boole
 
 export function BlogPageClient({ posts }: { posts: BlogPost[] }) {
   const [filter, setFilter] = useState<BlogCategory>("All");
-  const [email, setEmail] = useState("");
 
   const counts = useMemo(() => {
     const map: Partial<Record<BlogCategory, number>> = { All: posts.length };
@@ -200,38 +200,21 @@ export function BlogPageClient({ posts }: { posts: BlogPost[] }) {
               className="pointer-events-none absolute -right-20 -top-20 h-64 w-64 rounded-full bg-accent/40 blur-3xl"
               aria-hidden
             />
-            <Mail className="relative mx-auto text-accent-light" size={32} />
+            <MessageCircle className="relative mx-auto text-accent-light" size={32} />
             <h2 className="relative mt-4 font-display text-2xl font-bold">
-              Never miss a filing deadline
+              Need help with a filing deadline?
             </h2>
             <p className="relative mx-auto mt-3 max-w-md text-sm leading-relaxed text-white/65">
-              GST due dates, ROC reminders, and founder-friendly explainers — one email, no
-              spam.
+              Ask our team about GST due dates, ROC filings, or your next steps. Start a conversation on WhatsApp.
             </p>
-            <form
-              className="relative mx-auto mt-8 flex max-w-md flex-col gap-3 sm:flex-row"
-              onSubmit={(e) => {
-                e.preventDefault();
-                if (email) {
-                  window.location.href = `/contact?newsletter=${encodeURIComponent(email)}`;
-                }
-              }}
+            <a
+              href={site.whatsapp}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="relative mt-8 inline-flex items-center justify-center gap-2 rounded-full bg-[#276852] px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#1e5140] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
             >
-              <input
-                type="email"
-                required
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="you@company.com"
-                className="flex-1 rounded-xl border border-white/15 bg-white/10 px-4 py-3 text-white placeholder:text-white/40 outline-none focus:border-accent-light"
-              />
-              <button
-                type="submit"
-                className="rounded-xl bg-accent px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-accent-hover"
-              >
-                Subscribe
-              </button>
-            </form>
+              Chat on WhatsApp <ArrowRight size={16} aria-hidden="true" />
+            </a>
           </PageSection>
         </div>
 
